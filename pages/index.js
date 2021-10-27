@@ -11,6 +11,7 @@ import {
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { BioSection, BioYear } from '../components/bio'
 
 const Page = () => {
     return (
@@ -66,6 +67,33 @@ const Page = () => {
                         </Button>
                     </NextLink>
                 </Box>
+            </Section>
+            <Section delay={0.2}>
+                <Heading as="h3" varlant="section-title">
+                    Bio
+                </Heading>
+                <BioSection>
+                    <BioYear>
+                        1998
+                    </BioYear>
+                    Nacio en Carmen, Campeche, Mexico!
+                </BioSection>
+                <BioSection>
+                    <BioYear>2021</BioYear>
+                    Ingeniero en Computacion&apos; graduado en la Universidad Autonoma del Carmen de la facultad de Ciencias de la Informacion
+                </BioSection>
+            </Section>
+            <Section delay={0.2}>
+                <Heading as="h3" varlant="section-title">
+                    I ♥
+                </Heading>
+                <Paragraph>
+                    Art, Music,{' '}
+                    <Link href="https://efraindev.netlify.app/" target="_blank">
+                        Music
+                    </Link>
+                    , Playing Drums,{' '}
+                </Paragraph>
             </Section>
         </Container>
     )
