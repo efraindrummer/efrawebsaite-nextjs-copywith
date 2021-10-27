@@ -1,5 +1,16 @@
-import { Container, Box, Heading, Image, useColorModeValue } from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { 
+    Container, 
+    Box, 
+    Heading, 
+    Image,
+    Link,
+    Button,
+    useColorModeValue 
+} from '@chakra-ui/react'
 import Section from '../components/section'
+import Paragraph from '../components/paragraph'
+import { ChevronRightIcon } from '@chakra-ui/icons'
 
 const Page = () => {
     return (
@@ -38,7 +49,23 @@ const Page = () => {
                 <Heading as="h3" varlant="section-title">
                     Work
                 </Heading>
-                <p>Paragraph</p>
+                <Paragraph>
+                    Efrain es un Ingeniero de Software, creador de contenido y un apasionado por la tecnologia, a lo largo del tiempo
+                    a desarrollado productos para las empresas como TuProp, Telecom Bet-Gui, actualmente es un full-stack developer en
+                    texnologias JavaScript, usando React, Next, Node y Angular, tambien desarrollo aplicaciones moviles con Flutter 
+                    & Dart, Contactame {' '}
+                    <NextLink href="/works/inkdrop">
+                        <Link>Inkdrop</Link>
+                    </NextLink>
+                    .
+                </Paragraph>
+                <Box align="center" my={4}>
+                    <NextLink href="/works">
+                        <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+                            Mi Potafolio
+                        </Button>
+                    </NextLink>
+                </Box>
             </Section>
         </Container>
     )
