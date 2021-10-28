@@ -31,7 +31,7 @@ const Logo = () => {
                         fontWeight="bold"
                         ml={3}
                     >
-                        Efran May
+                        Alejandra Ramirez
                     </Text>
                 </LogoBox>
             </a>
