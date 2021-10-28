@@ -56,7 +56,7 @@ const Page = () => {
                         <br /> Quieres saber mas acerca de ello, descarga el siguiente archivo ↡
                     </Paragraph>
                     <Box align="center" my={4}>
-                        <Link href="https://efraindev.netlify.app/" target="_blank">
+                        <Link href="https://www.dropbox.com/s/gqfjavqr1vp0xss/DE%20LA%20CRUZ%20RAMIREZ%20ALEJANDRA%20PROYECTO%20FINAL.pdf?dl=0" target="_blank">
                             <Button rightIcon={<ChevronRightIcon />} colorScheme="orange">
                                 Descargar ↡
                             </Button>
