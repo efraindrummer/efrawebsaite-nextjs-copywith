@@ -6,13 +6,29 @@ import {
     Image,
     Link,
     Button,
+    SimpleGrid,
+    List,
+    Icon,
+    ListItem,
     useColorModeValue 
 } from '@chakra-ui/react'
+//components
 import Section from '../components/section'
-import Paragraph from '../components/paragraph'
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
+import Paragraph from '../components/paragraph'
+import { GridItem } from '../components/grid-item'
+import { BioSection, BioYear } from '../components/bio'
+
+import { ChevronRightIcon } from '@chakra-ui/icons'
+import {
+    IoLogoTwitter,
+    IoLogoInstagram,
+    IoLogoGithub,
+    IoLogoFacebook
+} from 'react-icons/io5'
+
+import thumbYouTube from '../public/images/links/PC-Gaming-Wallpapers-Top-Free-PC-Gaming-Backgrounds-.jpg'
+import thumbInkDrop from '../public/images/works/inkdrop_eyecatch.png'
 
 const Page = () => {
     return (
@@ -96,6 +112,75 @@ const Page = () => {
                         </Link>
                         , Playing Drums,{' '}
                     </Paragraph>
+                </Section>
+
+                <Section delay={0.3}>
+                    <Heading as="h3" varlant="section-title">
+                        On the web   
+                    </Heading>
+                    <List>
+                        <ListItem>
+                            <Link href="https://github.com/efraindrummer" target="_blank">
+                                <Button
+                                    variant="ghost" 
+                                    colorScheme="teal" 
+                                    leftIcon={<Icon as={IoLogoGithub} />}
+                                >
+                                    @efraindrummer
+                                </Button>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://twitter.com/efraindrummer7" target="_blank">
+                                <Button
+                                    variant="ghost" 
+                                    colorScheme="teal" 
+                                    leftIcon={<Icon as={IoLogoTwitter} />}
+                                >
+                                    @efraindrummer7
+                                </Button>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://www.instagram.com/efraincode/" target="_blank">
+                                <Button
+                                    variant="ghost" 
+                                    colorScheme="teal" 
+                                    leftIcon={<Icon as={IoLogoInstagram} />}
+                                >
+                                    @efracode
+                                </Button>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link href="https://www.facebook.com/Efrain.May/" target="_blank">
+                                <Button
+                                    variant="ghost" 
+                                    colorScheme="teal" 
+                                    leftIcon={<Icon as={IoLogoFacebook} />}
+                                >
+                                    Efrain May
+                                </Button>
+                            </Link>
+                        </ListItem>
+                    </List>
+
+                    <SimpleGrid columns={[1,2,2]} gap={6}>
+                        <GridItem
+                            href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
+                            title="Flutter ChatApp" 
+                            thumbnail={thumbYouTube}
+                        >
+                            My YouTube Channel
+                        </GridItem>
+                        <GridItem 
+                            href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
+                            title="Inkdrop" 
+                            thumbnail={thumbInkDrop}
+                        >
+                            A markDown note-taking app
+                        </GridItem>
+                    </SimpleGrid>
                 </Section>
             </Container>
         </Layout>
