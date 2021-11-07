@@ -27,7 +27,7 @@ import {
     IoLogoFacebook
 } from 'react-icons/io5'
 
-import thumbYouTube from '../public/images/links/PC-Gaming-Wallpapers-Top-Free-PC-Gaming-Backgrounds-.jpg'
+import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
 import thumbInkDrop from '../public/images/works/inkdrop_eyecatch.png'
 
 const Page = () => {
@@ -86,6 +86,7 @@ const Page = () => {
                     <Heading as="h2" varlant="section-title">
                         Estudios & Certificaciones
                     </Heading>
+                    <br />
                     <BioSection>
                         <BioYear>2021</BioYear>
                         Cloud Computing - Google Certification
@@ -228,11 +229,13 @@ const Page = () => {
                         [' ']
                     </List>
 
+                    <br />
+
                     <SimpleGrid columns={[1,2,2]} gap={6}>
                         <GridItem
                             href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
                             title="Flutter ChatApp" 
-                            thumbnail={thumbYouTube}
+                            thumbnail={thumbYouTubeChatApp}
                         >
                             My YouTube Channel
                         </GridItem>
