@@ -75,9 +75,9 @@ const Page = () => {
                         & Dart.
                     </Paragraph>
                     <Box align="center" my={4}>
-                        <NextLink href="/works">
+                        <NextLink href="/pdf" target="_blank">
                             <Button rightIcon={<ChevronRightIcon />} colorScheme="yellow">
-                                Descargar mi CV
+                                Descarga mi CV
                             </Button>
                         </NextLink>
                     </Box>
@@ -237,7 +237,7 @@ const Page = () => {
                             title="Flutter ChatApp" 
                             thumbnail={thumbYouTubeChatApp}
                         >
-                            My YouTube Channel
+                            Canal de YouTube
                         </GridItem>
                         <GridItem 
                             href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
