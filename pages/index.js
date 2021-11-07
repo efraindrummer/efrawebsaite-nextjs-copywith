@@ -185,7 +185,7 @@ const Page = () => {
                             <Link href="https://github.com/efraindrummer" target="_blank">
                                 <Button
                                     variant="ghost" 
-                                    colorScheme="teal" 
+                                    colorScheme="blackAlpha.900" 
                                     leftIcon={<Icon as={IoLogoGithub} />}
                                 >
                                     @efraindrummer
@@ -207,7 +207,7 @@ const Page = () => {
                             <Link href="https://www.instagram.com/efraincode/" target="_blank">
                                 <Button
                                     variant="ghost" 
-                                    colorScheme="teal" 
+                                    colorScheme="red" 
                                     leftIcon={<Icon as={IoLogoInstagram} />}
                                 >
                                     @efracode
@@ -218,13 +218,14 @@ const Page = () => {
                             <Link href="https://www.facebook.com/Efrain.May/" target="_blank">
                                 <Button
                                     variant="ghost" 
-                                    colorScheme="teal" 
+                                    colorScheme="blue" 
                                     leftIcon={<Icon as={IoLogoFacebook} />}
                                 >
                                     Efrain May
                                 </Button>
                             </Link>
                         </ListItem>
+                        [' ']
                     </List>
 
                     <SimpleGrid columns={[1,2,2]} gap={6}>
