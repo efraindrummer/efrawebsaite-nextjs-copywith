@@ -32,7 +32,7 @@ const Works = () => {
                         </WorkGridItem>
                     </Section>
                     <Section>
-                        <WorkGridItem id="angulargiphy" title="Angular Giphy" thumbnail={thumbAngularGiphyAPI}>
+                        <WorkGridItem id="giphy" title="Angular Giphy" thumbnail={thumbAngularGiphyAPI}>
                             Una aplicacion de web para buscar gifs echo en Angular
                         </WorkGridItem>
                     </Section>

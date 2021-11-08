@@ -9,12 +9,25 @@ const Giphy = () => {
         <Layout title="angulargiphy">
             <Container>
                 <Title>
-                    Angular Giphy <Bagde>2020</Bagde>
+                    Angular Giphy <Badge>2020</Badge>
                 </Title>
-                <p>
+                <P>
                     Este es una aplicacion para buscar tus gifs favoritos, guardalo en tu localStorage, y podras tenerlo
                     disponibles en cualquier momento y en todo lugar
-                </p>
+                </P>
+
+                <List ml={4} my={4}>
+                    <ListItem>
+                        <Meta>Platform</Meta>
+                        <span>Windows, MacOS, Linux, IOS, Android</span>
+                    </ListItem>
+                    <ListItem>
+                        <Meta>Stack</Meta>
+                        <span>Angular, Giphyapi, PWA</span>
+                    </ListItem>
+                </List>
+
+                <WorkImage src="/images/links/angular-coding.jpg" alt="Chatapp" />
             </Container>
         </Layout>
     )

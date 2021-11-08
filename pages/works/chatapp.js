@@ -16,29 +16,17 @@ const Work = () => {
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>
-                        <Meta>Website</Meta>
-                        <Link href='https://www.inkdrop.app/'>
-                        https://www.inkdrop.app/ <ExternalLinkIcon mx="2px" />
-                        </Link>
-                    </ListItem>
-                    <ListItem>
                         <Meta>Platform</Meta>
-                        <span>WIOS/Android</span>
+                        <span>IOS/Android</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
                         <span>NodeJS, Flutter</span>
                     </ListItem>
-                    <ListItem>
-                        <Meta>BlogPost</Meta>
-                        <Link href='https://efraindev.netlify.app/' target="_blank">
-                            https://efraindev.netlify.app/
-                        </Link>
-                    </ListItem>
                 </List>
 
-                <WorkImage src="/images/works/inkdrop_01.png" alt="Inkdrop" />
-                <WorkImage src="/images/works/inkdrop_02.png" alt="Inkdrop" />
+                <WorkImage src="/images/links/chatapp.jpg" alt="Chatapp" />
+                <WorkImage src="/images/links/flutter.png" alt="Chatapp" />
             </Container>
         </Layout>
     )
