@@ -6,13 +6,13 @@ import Layout from '../../components/layouts/article'
 
 const Work = () => {
     return (
-        <Layout title="Inkdrop">
+        <Layout title="chatapp">
             <Container>
                 <Title>
-                    Inkdrop <Badge>2016</Badge>
+                    ChatApp <Badge>2020</Badge>
                 </Title>
                 <P>
-                    A markdown  note-taking app with 100+ plugins, cross-platform and encrypted data sync support
+                    Esta es una app que simula como funciona la aplicacion de Uber, usando Google Maps
                 </P>
                 <List ml={4} my={4}>
                     <ListItem>
@@ -23,11 +23,11 @@ const Work = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Platform</Meta>
-                        <span>Windows/macOS/Linux/IOS/Android</span>
+                        <span>WIOS/Android</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>NodeJS, React, Angular, Flutter, VB.NET, Next JS</span>
+                        <span>NodeJS, Flutter</span>
                     </ListItem>
                     <ListItem>
                         <Meta>BlogPost</Meta>
