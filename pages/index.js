@@ -28,7 +28,7 @@ import {
 } from 'react-icons/io5'
 
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
-import thumbInkDrop from '../public/images/works/inkdrop_eyecatch.png'
+import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
 
 const Page = () => {
     return (
@@ -240,11 +240,11 @@ const Page = () => {
                             Canal de YouTube
                         </GridItem>
                         <GridItem 
-                            href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
+                            href="https://www.youtube.com/watch?v=LafxuUXgvuQ" 
                             title="Inkdrop" 
-                            thumbnail={thumbInkDrop}
+                            thumbnail={thumbAngularGiphyAPI}
                         >
-                            A markDown note-taking app
+                            Programando en Angular
                         </GridItem>
                     </SimpleGrid>
                 </Section>
