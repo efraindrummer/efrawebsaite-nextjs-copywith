@@ -17,6 +17,7 @@ import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
 import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
 import thumbEfraCode from '../public/images/links/web-efrain.jpg'
+import thumbSnappApp from '../public/images/links/snapp.jpg'
 
 const Works = () => {
     return (
@@ -27,25 +28,24 @@ const Works = () => {
                 </Heading>
 
                 <SimpleGrid columns={[1,1,2]} gap={6}>
-                    <Section>
+                    <Section delay={0.1}>
                         <WorkGridItem id="chatapp" title="ChatApp" thumbnail={thumbYouTubeChatApp}>
                             Una simple aplicacion de Mapas
                         </WorkGridItem>
                     </Section>
-                    <Section>
+                    <Section delay={0.1}>
                         <WorkGridItem id="giphy" title="Angular Giphy" thumbnail={thumbAngularGiphyAPI}>
                             Una aplicacion de web para buscar gifs echo en Angular
                         </WorkGridItem>
                     </Section>
-                    <Section>
+                    <Section delay={0.1}>
                         <WorkGridItem id="efracode" title="Website efracode" thumbnail={thumbEfraCode}>
                             Una pagina web echa en html, css, js
                         </WorkGridItem>
                     </Section>
                     <Section delay={0.1}>
-                        <WorkGridItem id="menkiki" thumbnail={thumbMenkiki} title="Menkiki">
-                            An app that suggests ramen(noodle) shops based on a given photo of
-                            the ramen you want to eat
+                        <WorkGridItem id="snapp" thumbnail={thumbSnappApp} title="Snapp">
+                            Snapp Taxi Driver
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>
