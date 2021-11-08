@@ -241,7 +241,7 @@ const Page = () => {
                         </GridItem>
                         <GridItem 
                             href="https://www.youtube.com/watch?v=LafxuUXgvuQ" 
-                            title="Inkdrop" 
+                            title="Giphy App" 
                             thumbnail={thumbAngularGiphyAPI}
                         >
                             Programando en Angular

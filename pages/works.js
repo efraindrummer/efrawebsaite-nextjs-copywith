@@ -16,6 +16,7 @@ import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
 
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
 import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
+import thumbEfraCode from '../public/images/links/web-efrain.jpg'
 
 const Works = () => {
     return (
@@ -37,9 +38,8 @@ const Works = () => {
                         </WorkGridItem>
                     </Section>
                     <Section>
-                        <WorkGridItem id="fourpainters" title="The four painters" thumbnail={thumbFourPainters}>
-                            A video work generated with deep learning, imitating famous four
-                            painters like Van Gogh
+                        <WorkGridItem id="efracode" title="Website efracode" thumbnail={thumbEfraCode}>
+                            Una pagina web echa en html, css, js
                         </WorkGridItem>
                     </Section>
                     <Section delay={0.1}>
