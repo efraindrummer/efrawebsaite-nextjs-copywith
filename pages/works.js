@@ -17,6 +17,7 @@ import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
 import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
 import thumbEfraCode from '../public/images/links/web-efrain.jpg'
+import thumbSchoolApp from '../public/images/links/school.jpg'
 import thumbSnappApp from '../public/images/links/snapp.jpg'
 
 const Works = () => {
@@ -41,6 +42,11 @@ const Works = () => {
                     <Section delay={0.1}>
                         <WorkGridItem id="efracode" title="Website efracode" thumbnail={thumbEfraCode}>
                             Una pagina web echa en html, css, js
+                        </WorkGridItem>
+                    </Section>
+                    <Section delay={0.1}>
+                        <WorkGridItem id="school" title="Desktop App" thumbnail={thumbSchoolApp}>
+                            Aplicacion de Registro de alumnos para una escuela
                         </WorkGridItem>
                     </Section>
                     <Section delay={0.1}>
