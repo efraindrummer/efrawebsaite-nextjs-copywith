@@ -27,7 +27,7 @@ const Giphy = () => {
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/links/angular-coding.jpg" alt="Chatapp" />
+                <WorkImage src="/images/links/angular-coding.jpg" alt="giphy" />
             </Container>
         </Layout>
     )
