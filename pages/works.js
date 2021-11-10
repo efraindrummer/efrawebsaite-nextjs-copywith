@@ -8,11 +8,6 @@ import { WorkGridItem } from '../components/grid-item'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
 
-//images
-/* import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png' */
-import thumbWalknote from '../public/images/works/walknote_eyecatch.png'
-import thumbFourPainters from '../public/images/works/the-four-painters_eyecatch.jpg'
-import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
 
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
 import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
