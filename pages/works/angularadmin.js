@@ -5,18 +5,15 @@ import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import { IoLogoGithub } from 'react-icons/io5'
 
-const ControlAcceso = () => {
+const AngularAdmin = () => {
     return (
-        <Layout title="control_acceso">
+        <Layout title="angularadmin">
             <Container>
                 <Title>
-                    Control de Acceso <Badge>2018</Badge>
+                    Administrador de Pacientes <Badge>2020</Badge>
                 </Title>
                 <P>
-                    Sistema de control de acceso de alumnos, este es un sistema web que le servira al edificio de la universidad a
-                    tomar registro de la entradas y salidas de los alumnos por los diferentes salones y salas usando su tarjeta NFC,
-                    cada quien tendra su tarjeta o crendencial NFC que les permitira el acceso a sus salones de clases y diferentes 
-                    areas de la universidad.
+                    Administrador de Pacientes, sistema de hospital para administrar a los pacientes
                 </P>
 
                 <List ml={4} my={4}>
@@ -26,13 +23,13 @@ const ControlAcceso = () => {
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
-                        <span>Php 7, MySQL, Html, Css, Javascript, Bootstrap 4</span>
+                        <span>MEAN (MongoDB + Express + Angular + Node JS)</span>
                     </ListItem>
                 </List>
 
                 <P>Code</P>
 
-                <Link href="https://github.com/efraindrummer/Control-de-acceso-con-NFC" target="_blank">
+                <Link href="https://github.com/efraindrummer/angular-adv-AdminPro" target="_blank">
                     <Button
                         variant="ghost" 
                         colorScheme="blackAlpha.900" 
@@ -42,11 +39,11 @@ const ControlAcceso = () => {
                     </Button>
                 </Link>
 
-                <WorkImage src="/images/links/control-acceso.jpg" alt="control-acceso" />
-                <WorkImage src="/images/links/control-alumnos.jpg" alt="control-acceso" />
+                <WorkImage src="/images/links/angular-admin.jpg" alt="control-acceso" />
+                <WorkImage src="/images/links/angular-admin-1.jpg" alt="control-acceso" />
             </Container>
         </Layout>
     )
 }
 
-export default ControlAcceso
+export default AngularAdmin

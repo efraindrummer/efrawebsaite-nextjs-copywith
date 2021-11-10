@@ -25,7 +25,7 @@ const Work = () => {
                     </ListItem>
                 </List>
 
-                <WorkImage src="/images/links/web-efrain.jpg" alt="Chatapp" />
+                <WorkImage src="/images/links/web-efrain.jpg" alt="efracode" />
             </Container>
         </Layout>
     )
