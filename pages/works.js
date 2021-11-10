@@ -19,6 +19,7 @@ import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
 import thumbEfraCode from '../public/images/links/web-efrain.jpg'
 import thumbSchoolApp from '../public/images/links/school.jpg'
 import thumbSnappApp from '../public/images/links/snapp.jpg'
+import thumbAccessControl from '../public/images/links/control-acceso.jpg'
 
 const Works = () => {
     return (
@@ -52,6 +53,11 @@ const Works = () => {
                     <Section delay={0.1}>
                         <WorkGridItem id="snapp" thumbnail={thumbSnappApp} title="Snapp">
                             Snapp Taxi Driver
+                        </WorkGridItem>
+                    </Section>
+                    <Section delay={0.1}>
+                        <WorkGridItem id="control_acceso" thumbnail={thumbAccessControl} title="Control de Acceso">
+                            Sistema de Control de Acceso
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>
