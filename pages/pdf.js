@@ -1,5 +1,5 @@
-import React from 'react'
-import PDFViewer from 'pdf-viewer-reactjs'
+import React, { useState } from 'react'
+import { Document, Page } from "react-pdf";
 import styled from '@emotion/styled'
 /* const MyCV = require ('../docs/Curriculum-efracode.pdf') */
 
@@ -10,12 +10,39 @@ const ContainerPdf = styled.div`
 `
 
 const Pdf = () => {
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+    
+    function onDocumentLoadSuccess({ numPages }) {
+        setNumPages(numPages);
+        setPageNumber(1);
+    }
+    
+    function changePage(offset) {
+        setPageNumber(prevPageNumber => prevPageNumber + offset);
+    }
+      
+    function previousPage() {
+        changePage(-1);
+    }
+      
+    function nextPage() {
+        changePage(1);
+    }
+
     return (
-            <PDFViewer
-                document={{
-                    url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
-                }}
-            />
+        <div>
+
+            <div style={{ width: 600 }}>
+                <Document
+                    file="docs/Curriculum-efracode.pdf"
+                    onLoadSuccess={onDocumentLoadSuccess}
+                >
+                    <Page pageNumber={pageNumber} />
+                </Document>
+            </div>
+            
+        </div>
     )
 }
 
