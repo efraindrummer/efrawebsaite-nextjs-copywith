@@ -75,7 +75,7 @@ const Page = () => {
                         & Dart.
                     </Paragraph>
                     <Box align="center" my={4}>
-                        <NextLink href="/pdf" target="_blank">
+                        <NextLink href="https://www.dropbox.com/s/x9jf92ne39wwaqf/Curriculum-efracode.pdf?dl=0" target="_blank">
                             <Button rightIcon={<ChevronRightIcon />} colorScheme="yellow">
                                 Descarga mi CV
                             </Button>
