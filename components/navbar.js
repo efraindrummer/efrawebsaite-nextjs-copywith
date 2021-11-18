@@ -72,9 +72,9 @@ const Navbar = props => {
                     <LinkItem href="/works" path={path}>
                         Portafolio
                     </LinkItem>
-                    <LinkItem href="/posts" path={path}>
+                    {/* <LinkItem href="/posts" path={path}>
                         Publicaciones
-                    </LinkItem>
+                    </LinkItem> */}
                 </Stack>
 
                 <Box flex={1} align="right">
@@ -89,19 +89,19 @@ const Navbar = props => {
                             />
                             <MenuList>
                                 <NextLink href="/" passHref>
-                                    <MenuItem as={Link}>About</MenuItem>
+                                    <MenuItem as={Link}>Efrain May</MenuItem>
                                 </NextLink>   
                                 <NextLink href="/works" passHref>
-                                    <MenuItem as={Link}>Works</MenuItem>
+                                    <MenuItem as={Link}>Portafolio</MenuItem>
                                 </NextLink>   
-                                <NextLink href="/posts" passHref>
+                                {/* <NextLink href="/posts" passHref>
                                     <MenuItem as={Link}>Posts</MenuItem>
-                                </NextLink>   
+                                </NextLink>    */}
                                 <MenuItem 
                                     as={Link} 
                                     href="https://github.com/efraindrummer/efrawebsaite-nextjs-copywith"
                                 >
-                                    View Source
+                                    Ver Codigo en Github
                                 </MenuItem>
                             </MenuList>
                         </Menu>
