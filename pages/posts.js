@@ -1,4 +1,4 @@
-import { Container, Heading, SimpleGrid, Box, Image} from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { GridItem } from '../components/grid-item'
@@ -7,8 +7,6 @@ import thumbCallingApp from '../public/images/contents/calling_app.jpg'
 import thumbMapasApp from '../public/images/contents/mapas_app.jpg'
 import thumbFlutterBug from '../public/images/contents/flutter_bugs.jpg'
 import thumbGithub from '../public/images/contents/github.jpg'
-import thumbHowToPriceYourself from '../public/images/contents/blog-how-to-price-yourself.jpg'
-import thumb50xFaster from '../public/images/contents/youtube-50x-faster.jpg'
 
 const Posts = () => {
     return (

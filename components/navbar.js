@@ -94,14 +94,14 @@ const Navbar = props => {
                                 <NextLink href="/works" passHref>
                                     <MenuItem as={Link}>Portafolio</MenuItem>
                                 </NextLink>   
-                                {/* <NextLink href="/posts" passHref>
-                                    <MenuItem as={Link}>Posts</MenuItem>
-                                </NextLink>    */}
+                                <NextLink href="/posts" passHref>
+                                    <MenuItem as={Link}>Publicaciones</MenuItem>
+                                </NextLink>   
                                 <MenuItem 
                                     as={Link} 
                                     href="https://github.com/efraindrummer/efrawebsaite-nextjs-copywith"
                                 >
-                                    Ver Codigo en Github
+                                    View Code
                                 </MenuItem>
                             </MenuList>
                         </Menu>

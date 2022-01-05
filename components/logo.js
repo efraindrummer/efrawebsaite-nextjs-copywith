@@ -29,7 +29,7 @@ const Logo = () => {
                         fontWeight="bold"
                         ml={3}
                     >
-                        Efran May
+                        Efrain May
                     </Text>
                 </LogoBox>
             </a>
