@@ -3,7 +3,7 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { GridItem } from '../components/grid-item'
 
-import thumbFishWorkflow from '../public/images/contents/youtube-fish-workflow.jpg'
+import thumbCallingApp from '../public/images/contents/calling_app.jpg'
 import thumbMyDeskSetup from '../public/images/contents/youtube-my-desk-setup.jpg'
 import thumb500PaidUsers from '../public/images/contents/blog-500-paid-users.jpg'
 import thumbFinancialGoal from '../public/images/contents/blog-financial-goal.png'
@@ -15,14 +15,14 @@ const Posts = () => {
         <Layout title="Posts">
             <Container>
                 <Heading as="h4" fontSize={20} mb={4}>
-                    Popular Posts
+                    Publicaciones & Videos Favoritos
                 </Heading>
                 <Section delay={0.1}>
                     <SimpleGrid columns={[1,2,2]} gap={6}>
                         <GridItem 
-                            title="Mi Fish Workflow" 
-                            thumbnail={thumbFishWorkflow}
-                            href="https://www.youtube.com/watch?v=nCd7z8gWYF8&list=RDkTx1vpVhXOI&index=4" 
+                            title="Aplicacion de Llamadas" 
+                            thumbnail={thumbCallingApp}
+                            href="https://www.youtube.com/watch?v=blUy-wAukSw" 
                         />
                         <GridItem 
                             title="My desk setup (late 2020)" 
