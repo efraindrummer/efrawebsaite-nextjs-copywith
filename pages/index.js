@@ -34,8 +34,8 @@ const Page = () => {
     return (
         <Layout>
             <Container>
-                <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3}  mb={6} aling="center">
-                    Hola, soy Desarrollador Web & Mobile en Mexico!
+                <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3}  mb={8} aling="center">
+                    Hola, Desarrollador de Software en Mexico!
                 </Box>
                 
                 <Box display={{md:'flex'}}>

@@ -72,9 +72,9 @@ const Navbar = props => {
                     <LinkItem href="/works" path={path}>
                         Portafolio
                     </LinkItem>
-                    {/* <LinkItem href="/posts" path={path}>
+                    <LinkItem href="/posts" path={path}>
                         Publicaciones
-                    </LinkItem> */}
+                    </LinkItem>
                 </Stack>
 
                 <Box flex={1} align="right">
