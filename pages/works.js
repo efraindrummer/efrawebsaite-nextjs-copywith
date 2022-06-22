@@ -16,6 +16,7 @@ import thumbSchoolApp from '../public/images/links/school.jpg'
 import thumbSnappApp from '../public/images/links/snapp.jpg'
 import thumbAccessControl from '../public/images/links/control-acceso.jpg'
 import thumbAngularAdmin from '../public/images/links/angular-admin.jpg'
+import thumbSeguridad360 from '../public/images/links/seguridad360.jpg'
 
 const Works = () => {
     return (
@@ -59,6 +60,11 @@ const Works = () => {
                     <Section delay={0.1}>
                         <WorkGridItem id="snapp" thumbnail={thumbSnappApp} title="Snapp">
                             Snapp Taxi Driver
+                        </WorkGridItem>
+                    </Section>
+                    <Section delay={0.1}>
+                        <WorkGridItem id="seguridad360" thumbnail={thumbSeguridad360} title="Seguridad360">
+                            Seguridad360
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>

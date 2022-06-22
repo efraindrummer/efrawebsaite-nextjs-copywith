@@ -1,15 +1,26 @@
 import React from 'react'
-import { Avatar, AvatarBadge, AvatarGroup, Box, SimpleGrid, Wrap, WrapItem } from '@chakra-ui/react'
+import { Center, Container } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react'
+import Layout from '../components/layouts/article'
+import { Title } from '../components/work'
 
 const Others = () => {
   return(
-    <SimpleGrid columns={2} spacingX='40px' spacingY='20px'>
-        <Box bg='tomato' height='80px'></Box>
-        <Box bg='tomato' height='80px'></Box>
-        <Box bg='tomato' height='80px'></Box>
-        <Box bg='tomato' height='80px'></Box>
-        <Box bg='tomato' height='80px'></Box>
-    </SimpleGrid>
+    <Layout>
+      <Container></Container>
+      <Title>
+        En construccion...
+      </Title>
+      <Center>
+        <Spinner
+          thickness='4px'
+          speed='0.65s'
+          emptyColor='yellow'
+          color='blue.500'
+          size='xl'
+        />
+      </Center>
+    </Layout>
   );
 }
 
