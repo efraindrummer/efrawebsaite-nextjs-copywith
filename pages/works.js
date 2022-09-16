@@ -67,6 +67,11 @@ const Works = () => {
                             Seguridad360
                         </WorkGridItem>
                     </Section>
+                    <Section delay={0.1}>
+                        <WorkGridItem id="monitoreo_control" thumbnail={thumbSeguridad360} title="Sud Monitoreo y Control">
+                            Sud Monitoreo y Control
+                        </WorkGridItem>
+                    </Section>
                 </SimpleGrid>
             </Container>
         </Layout>
