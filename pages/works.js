@@ -7,6 +7,7 @@ import {
 import { WorkGridItem } from '../components/grid-item'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 
 
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
@@ -17,6 +18,7 @@ import thumbSnappApp from '../public/images/links/snapp.jpg'
 import thumbAccessControl from '../public/images/links/control-acceso.jpg'
 import thumbAngularAdmin from '../public/images/links/angular-admin.jpg'
 import thumbSeguridad360 from '../public/images/links/seguridad360.jpg'
+import thumbCompu from '../public/images/links/comp.jpg'
 
 const Works = () => {
     return (
@@ -68,9 +70,14 @@ const Works = () => {
                         </WorkGridItem>
                     </Section>
                     <Section delay={0.1}>
-                        <WorkGridItem id="monitoreo_control" thumbnail={thumbSeguridad360} title="Sud Monitoreo y Control">
-                            Sud Monitoreo y Control
+                        <WorkGridItem id="monitoreo_control" thumbnail={thumbCompu} title="Sud Monitoreo y Control">
+                            Sud Monitoreo y Control Prueba
                         </WorkGridItem>
+                        <hr />
+                        <p>
+                            este es una prueba de CI/CD
+                        </p>
+                        <CircularProgress isIndeterminate color='red.300' />
                     </Section>
                 </SimpleGrid>
             </Container>

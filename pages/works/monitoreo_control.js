@@ -38,7 +38,7 @@ const MonitoreoControl = () => {
                     <br />
                 </Link>
 
-                <WorkImage src="/images/links/seguridad360panel.jpg" alt="seguridad-360" />
+                <WorkImage src="/images/links/comp.jpg" alt="seguridad-360" />
                 <WorkImage src="/images/links/seguridad360web.jpg" alt="seguridad-360" />
             </Container>
         </Layout>
