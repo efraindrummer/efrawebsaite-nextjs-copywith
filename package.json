@@ -1,7 +1,7 @@
 {
   "name": "craftzdog-homepage",
   "version": "1.0.0",
-  "description": "website copy of the craftzdog, ",
+  "description": "website copy of the craftzdog, this is my portaafolio efracode ",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
