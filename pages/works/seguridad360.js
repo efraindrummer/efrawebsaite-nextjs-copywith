@@ -1,4 +1,4 @@
-import { Container, Badge, Button, Icon, Link, List, ListItem } from '@chakra-ui/react'
+import { Container, Badge, Button, Icon, List, ListItem } from '@chakra-ui/react'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
@@ -26,15 +26,15 @@ const Seguridad360 = () => {
                     </ListItem>
                 </List>
 
-                <Link href="https://play.google.com/store/apps/details?id=com.sudsolutions.seguridad360&hl=es_MX" target="_blank">
+                
                     <Button
+                    href="https://play.google.com/store/apps/details?id=com.sudsolutions.seguridad360&hl=es_MX" target="_blank"
                         variant="ghost" 
                         colorScheme="yellow" 
                         leftIcon={<Icon as={IoLogoGooglePlaystore} />}
                     >
                         Seguridad360
                     </Button>
-                </Link>
 
                 <WorkImage src="/images/links/seguridad360panel.jpg" alt="seguridad-360" />
                 <WorkImage src="/images/links/seguridad360web.jpg" alt="seguridad-360" />
@@ -44,3 +44,4 @@ const Seguridad360 = () => {
 }
 
 export default Seguridad360
+export { getServerSideProps } from '../../components/chakra'

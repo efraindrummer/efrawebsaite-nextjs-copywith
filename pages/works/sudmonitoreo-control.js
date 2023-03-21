@@ -1,4 +1,4 @@
-import { Container, Badge, Button, Icon, Link, List, ListItem, Grid, GridItem } from '@chakra-ui/react'
+import { Container, Badge, Button, Icon, List, ListItem } from '@chakra-ui/react'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
@@ -6,10 +6,6 @@ import { IoLogoGooglePlaystore } from 'react-icons/io5'
 
 const SudMonitoreControl = () => {
 
-
-    const SudMonitorAndControl = {
-
-    }
 
     return (
         <Layout title="sudmonitoreo-control">
@@ -31,16 +27,14 @@ const SudMonitoreControl = () => {
                         <span>Flutter</span>
                     </ListItem>
                 </List>
-
-                <Link href="https://play.google.com/store/apps/details?id=com.sudsolutions.sudmonitoreoycontrol&hl=es" target="_blank">
                     <Button
+                        href="https://play.google.com/store/apps/details?id=com.sudsolutions.sudmonitoreoycontrol&hl=es" target="_blank"
                         variant="ghost" 
                         colorScheme="yellow" 
                         leftIcon={<Icon as={IoLogoGooglePlaystore} />}
                     >
                         Sud Monitoreo y Control
                     </Button>
-                </Link>
 
                 <WorkImage src="/images/links/panel_sudmonitoreocontrol.jpg" alt="sudmonitoreo-control" />
             </Container>
@@ -50,3 +44,4 @@ const SudMonitoreControl = () => {
 }
 
 export default SudMonitoreControl
+export { getServerSideProps } from '../../components/chakra'

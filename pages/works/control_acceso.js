@@ -50,3 +50,4 @@ const ControlAcceso = () => {
 }
 
 export default ControlAcceso
+export { getServerSideProps } from '../../components/chakra'

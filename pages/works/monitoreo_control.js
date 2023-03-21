@@ -46,3 +46,4 @@ const MonitoreoControl = () => {
 }
 
 export default MonitoreoControl
+export { getServerSideProps } from '../../components/chakra'
