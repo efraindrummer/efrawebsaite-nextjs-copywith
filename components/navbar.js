@@ -20,25 +20,27 @@ import ThemeToggleButton from "./theme-toggle-button"
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+
     return (
-      <Link
-        as={NextLink}
-        href={href}
-        scroll={false}
-        p={2}
-        bg={active ? 'grassTeal' : undefined}
-        color={active ? '#202023' : inactiveColor}
-        target={target}
-        {...props}
-      >
-        {children}
-      </Link>
+        <Link
+            as={NextLink}
+            href={href}
+            scroll={false}
+            p={2}
+            bg={active ? 'grassTeal' : undefined}
+            color={active ? '#202023' : inactiveColor}
+            target={target}
+            {...props}
+        >
+            {children}
+        </Link>
     )
-  }
+}
+
 
 const MenuLink = forwardRef((props, ref) => (
-    <Link ref={ref} as={NextLink} {...props} />
+  <Link ref={ref} as={NextLink} {...props} />
 ))
 
 const Navbar = props => {
@@ -76,24 +78,21 @@ const Navbar = props => {
                     flexGrow={1}
                     mt={{base: 4, nmd: 0}}
                 >
-                    <MenuItem as={MenuLink} href="/">
-                        About
-                    </MenuItem>
-                    <MenuItem as={MenuLink} href="/works" path={path}>
+                    <LinkItem href="/works" path={path}>
                         Portafolio
-                    </MenuItem>
-                    <MenuItem as={MenuLink} href="/posts" path={path}>
+                    </LinkItem>
+                    <LinkItem href="/posts" path={path}>
                         Publicaciones
-                    </MenuItem>
-                    <MenuItem as={MenuLink} href="/others" path={path}>
+                    </LinkItem>
+                    <LinkItem href="/others" path={path}>
                         Otras
-                    </MenuItem>
+                    </LinkItem>
                 </Stack>
 
                 <Box flex={1} align="right">
                     <ThemeToggleButton />
                     <Box ml={2} display={{base: 'inline-block', md:'none'}}>
-                      
+                        <Menu>
                             <MenuButton 
                                 as={IconButton} 
                                 icon={<HamburgerIcon />} 
@@ -101,14 +100,12 @@ const Navbar = props => {
                                 aria-label="Options" 
                             />
                             <MenuList>
-                                <MenuItem as={Link}>Efrain May</MenuItem>
-                               
-                                <MenuItem as={Link} href="/works">Portafolio</MenuItem>
-                               
-                                <MenuItem as={Link} href="/posts" >Publicaciones</MenuItem>
-                               
-                                <MenuItem as={Link} href="/others">Otras</MenuItem>
                                 
+                                <MenuItem as={MenuLink} href="/">Efrain May</MenuItem>
+                                <MenuItem as={MenuLink} href="/works">Portafolio</MenuItem>
+                                <MenuItem as={MenuLink} href="/posts">Publicaciones</MenuItem>
+                                <MenuItem as={MenuLink} href="/others">Otras</MenuItem>
+                               
                                 <MenuItem 
                                     as={Link} 
                                     href="https://github.com/efraindrummer/efrawebsaite-nextjs-copywith"
@@ -116,6 +113,7 @@ const Navbar = props => {
                                     View Code
                                 </MenuItem>
                             </MenuList>
+                        </Menu>
                     </Box>
                 </Box>
             </Container>

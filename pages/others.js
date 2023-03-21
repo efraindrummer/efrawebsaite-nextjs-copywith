@@ -25,4 +25,3 @@ const Others = () => {
 }
 
 export default Others
-export { getServerSideProps } from '../../components/chakra'
