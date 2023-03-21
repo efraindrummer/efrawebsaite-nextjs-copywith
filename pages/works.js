@@ -69,7 +69,7 @@ const Works = () => {
                         </WorkGridItem>
                     </Section>
                     <Section delay={0.1}>
-                        <WorkGridItem id="monitoreocontrol" thumbnail={thumbSudMonitoreoControl} title="Sud Monitoreo y Control">
+                        <WorkGridItem id="sudmonitoreo-control" thumbnail={thumbSudMonitoreoControl} title="Sud Monitoreo y Control">
                             Sud Monitoreo y Control
                         </WorkGridItem>
                     </Section>

@@ -1,15 +1,21 @@
-import { Container, Badge, Button, Icon, Link, List, ListItem } from '@chakra-ui/react'
+import { Container, Badge, Button, Icon, Link, List, ListItem, Grid, GridItem } from '@chakra-ui/react'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import { IoLogoGooglePlaystore } from 'react-icons/io5'
 
 const SudMonitoreControl = () => {
+
+
+    const SudMonitorAndControl = {
+
+    }
+
     return (
-        <Layout title="monitoreocontrol">
+        <Layout title="sudmonitoreo-control">
             <Container>
                 <Title>
-                Sud Monitoreo y Control <Badge>2022</Badge>
+                    Sud Monitoreo y Control <Badge>2022</Badge>
                 </Title>
                 <P>
                     Aplicacion mobile de monitoreo de unidades GPS consumiendo servicios REST y WebSocket para manejo de notifcaciones.
@@ -18,7 +24,7 @@ const SudMonitoreControl = () => {
                 <List ml={4} my={4}>
                     <ListItem>
                         <Meta>Platform</Meta>
-                        <span>Mobile Android & IOS</span>
+                        <span>Mobile</span>
                     </ListItem>
                     <ListItem>
                         <Meta>Stack</Meta>
@@ -32,13 +38,13 @@ const SudMonitoreControl = () => {
                         colorScheme="yellow" 
                         leftIcon={<Icon as={IoLogoGooglePlaystore} />}
                     >
-                        Seguridad360
+                        Sud Monitoreo y Control
                     </Button>
                 </Link>
 
-                <WorkImage src="/images/links/panel_sudmonitoreocontrol.png" alt="sudmonitoreo-control" />
-                <WorkImage src="/images/links/seguridad360web.jpg" alt="seguridad-360" />
+                <WorkImage src="/images/links/panel_sudmonitoreocontrol.jpg" alt="sudmonitoreo-control" />
             </Container>
+
         </Layout>
     )
 }
