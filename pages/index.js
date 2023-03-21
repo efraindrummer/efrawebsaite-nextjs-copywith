@@ -39,7 +39,7 @@ const Home = () => {
         <Layout>
             <Container>
                 <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3}  mb={8} aling="center">
-                    Hola, Desarrollador de Software en Mexico!
+                    Hola, soy  Efrain May, Desarrollador de Software!
                 </Box>
                 
                 <Box display={{md:'flex'}}>
@@ -47,7 +47,7 @@ const Home = () => {
                         <Heading as="h2" varlant="page-title">
                             Efrain May
                         </Heading>
-                        <p>Ingeniero En Computacion ( Artista / Programador / Javascript💛 )</p>
+                        <p>Ingeniero En Computacion ( Musician / Programmer 💛 )</p>
                     </Box>
                 </Box>
                 <Box 
@@ -63,7 +63,7 @@ const Home = () => {
                         maxWidth="100px" 
                         display="inline-block"
                         borderRadius="full"
-                        src="/images/efrain.jpg"
+                        src="/images/efraindrummer.jpeg"
                         alt="Profile Image"
                         width="100"
                         height="100"
@@ -75,14 +75,17 @@ const Home = () => {
                         Sobre Mi
                     </Heading>
                     <Paragraph>
-                        Efrain es un Ingeniero de Software, creador de contenido y un apasionado por la tecnologia, a lo largo del tiempo
-                        a desarrollado productos para las empresas como TuProp, Telecom Bet-Gui, actualmente me desempeño en
+                        Actualmente soy es un Ingeniero de Software en SUDSOLUTIONS especialmente en el area de desarrollo mobile!
+                        <br />
+                        <br />
+                        Apasionado por la tecnologia, a lo largo del tiempo he agarrado experiencia en el desarrollo
+                        de productos en empresas como TuProp, Telecom Bet-Gui, actualmente me desempeño en
                         tecnologias JavaScript, usando React, Next, Node y Angular, tambien desarrollo aplicaciones moviles con Flutter 
                         & Dart.
                     </Paragraph>
                     <Box align="center" my={4}>
-                        <NextLink href="https://www.dropbox.com/s/x9jf92ne39wwaqf/Curriculum-efracode.pdf?dl=0" target="_blank">
-                            <Button rightIcon={<ChevronRightIcon />} colorScheme="yellow">
+                        <NextLink href="https://www.dropbox.com/s/8l0axe4qee8ea0j/Curriculum%20CV%20Simple%20Blanco%20y%20Negro.pdf?dl=0" target="_blank">
+                            <Button rightIcon={<ChevronRightIcon />} colorScheme="red">
                                 Descarga mi CV
                             </Button>
                         </NextLink>
@@ -93,6 +96,10 @@ const Home = () => {
                         Estudios & Certificaciones
                     </Heading>
                     <br />
+                    <BioSection>
+                        <BioYear>2022</BioYear>
+                        Ingeniero En Computacion - Universidad Autonoma Del Carmen
+                    </BioSection>
                     <BioSection>
                         <BioYear>2021</BioYear>
                         Cloud Computing - Google Certification
