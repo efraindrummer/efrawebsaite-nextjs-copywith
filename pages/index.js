@@ -232,7 +232,6 @@ const Home = () => {
                                 </Button>
                             </Link>
                         </ListItem>
-                        [' ']
                     </List>
 
                     <br />
