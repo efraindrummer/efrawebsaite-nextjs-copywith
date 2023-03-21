@@ -1,8 +1,7 @@
 import {
     Container,
     Heading,
-    SimpleGrid,
-    Divider
+    SimpleGrid
 } from '@chakra-ui/react'
 import { WorkGridItem } from '../components/grid-item'
 import Section from '../components/section'
@@ -80,3 +79,4 @@ const Works = () => {
 }
 
 export default Works
+export { getServerSideProps } from '../../components/chakra'

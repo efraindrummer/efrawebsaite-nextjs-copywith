@@ -3,14 +3,13 @@ import {
     Container, 
     Box, 
     Heading, 
-    Image,
-    Link,
     Button,
     SimpleGrid,
     List,
     Icon,
     ListItem,
-    useColorModeValue 
+    useColorModeValue,
+    chakra
 } from '@chakra-ui/react'
 //components
 import Section from '../components/section'
@@ -18,7 +17,7 @@ import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import { GridItem } from '../components/grid-item'
 import { BioSection, BioYear } from '../components/bio'
-
+import Image from 'next/image'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
     IoLogoTwitter,
@@ -30,7 +29,11 @@ import {
 import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
 import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
 
-const Page = () => {
+const ProfileImage = chakra(Image, {
+    shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
+})
+
+const Home = () => {
     return (
         <Layout>
             <Container>
@@ -52,7 +55,7 @@ const Page = () => {
                     ml={{md: 6}} 
                     align="center"
                 >
-                    <Image 
+                    <ProfileImage 
                         borderColor="whiteAlpha.800" 
                         borderWidth={2} 
                         borderStyle="groove" 
@@ -254,4 +257,5 @@ const Page = () => {
 }
 
 
-export default Page
+export default Home
+export { getServerSideProps } from '../components/chakra'

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "website copy of the craftzdog, this is my portaafolio efracode ",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "prettier": "prettier -write .",
+    "start": "next start",
+    "prettier": "prettier --write .",
     "lint": "next lint"
   },
   "keywords": [],
@@ -18,15 +19,15 @@
     "@emotion/styled": "^11.3.0",
     "dom": "0.0.3",
     "framer-motion": "^4.1.17",
-    "next": "^12.1.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
     "three": "^0.133.1"
   },
   "devDependencies": {
     "eslint": "^8.1.0",
-    "eslint-config-next": "^11.1.2",
+    "eslint-config-next": "^13.2.4",
     "prettier": "^2.4.1"
   }
 }

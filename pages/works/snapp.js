@@ -34,3 +34,4 @@ const Snapp = () => {
 }
 
 export default Snapp
+export { getServerSideProps } from '../../components/chakra'

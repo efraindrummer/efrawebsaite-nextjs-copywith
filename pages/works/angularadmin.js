@@ -1,4 +1,4 @@
-import { Container, Badge, Button, Icon, Link, List, ListItem } from '@chakra-ui/react'
+import { Container, Badge, Button, Icon, List, ListItem } from '@chakra-ui/react'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
@@ -28,15 +28,14 @@ const AngularAdmin = () => {
 
                 <P>Code</P>
 
-                <Link href="https://github.com/efraindrummer/angular-adv-AdminPro" target="_blank">
                     <Button
+                        href="https://github.com/efraindrummer/angular-adv-AdminPro" target="_blank"
                         variant="ghost" 
                         colorScheme="blackAlpha.900" 
                         leftIcon={<Icon as={IoLogoGithub} />}
                     >
                         @efraindrummer
                     </Button>
-                </Link>
 
                 <WorkImage src="/images/links/angular-admin.jpg" alt="control-acceso" />
                 <WorkImage src="/images/links/angular-admin-1.jpg" alt="control-acceso" />
@@ -46,3 +45,4 @@ const AngularAdmin = () => {
 }
 
 export default AngularAdmin
+export { getServerSideProps } from '../../components/chakra'
