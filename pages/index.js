@@ -18,7 +18,7 @@ import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import { GridItem } from '../components/grid-item'
 import { BioSection, BioYear } from '../components/bio'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
     IoLogoTwitter,
