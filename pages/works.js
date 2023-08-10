@@ -18,6 +18,7 @@ import thumbAngularAdmin from '../public/images/links/angular-admin.jpg'
 import thumbSeguridad360 from '../public/images/links/seguridad360.jpg'
 import thumbSudMonitoreoControl from '../public/images/links/panel_sudmonitoreocontrol.jpg'
 import thumbLidosPizza from '../public/images/works/weblidos.png';
+import thumbPronTaxi from '../public/images/works/prontaxi-principal.jpg';
 
 const Works = () => {
     return (
@@ -76,6 +77,11 @@ const Works = () => {
                     <Section delay={0.1}>
                         <WorkGridItem id="lidosapp" thumbnail={thumbLidosPizza}  title="Lidos Pizza">
                             Lidos Pizza
+                        </WorkGridItem>
+                    </Section>
+                    <Section delay={0.1}>
+                        <WorkGridItem id="prontaxi" thumbnail={thumbPronTaxi}  title="Mi Taxi">
+                            Mi Taxi Pasajero y Conductor
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>
