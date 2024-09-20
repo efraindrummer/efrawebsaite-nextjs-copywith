@@ -11,7 +11,7 @@ const Nuup = () => {
                     Nuup <Badge>2024</Badge>
                 </Title>
                 <P>
-                "Desarrollo e implementación de un Sistema ERP (Enterprise Resource Planning) interno orientado a la automatización de procesos clave en los diferentes departamentos de la empresa. El sistema permitió optimizar flujos de trabajo, centralizando la gestión de información y facilitando una mayor claridad en la toma de decisiones. Se implementaron módulos personalizados que mejoraron la eficiencia operativa, reduciendo errores manuales y mejorando la colaboración entre equipos. Estas mejoras resultaron en un manejo más eficaz de los recursos, una mayor visibilidad en los procesos internos, y un incremento en la productividad global de la empresa."
+                Desarrollo e implementación de un Sistema ERP (Enterprise Resource Planning) interno orientado a la automatización de procesos clave en los diferentes departamentos de la empresa. El sistema permitió optimizar flujos de trabajo, centralizando la gestión de información y facilitando una mayor claridad en la toma de decisiones. Se implementaron módulos personalizados que mejoraron la eficiencia operativa, reduciendo errores manuales y mejorando la colaboración entre equipos. Estas mejoras resultaron en un manejo más eficaz de los recursos, una mayor visibilidad en los procesos internos, y un incremento en la productividad global de la empresa.
                 </P>
 
                 <List ml={4} my={4}>
