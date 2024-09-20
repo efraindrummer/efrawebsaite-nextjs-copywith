@@ -11,7 +11,6 @@ import {
     ListItem,
     useColorModeValue,
     chakra,
-    Grid,
     Text
 } from '@chakra-ui/react'
 //components
