@@ -19,6 +19,7 @@ import thumbSeguridad360 from '../public/images/links/seguridad360.jpg'
 import thumbSudMonitoreoControl from '../public/images/links/panel_sudmonitoreocontrol.jpg'
 import thumbLidosPizza from '../public/images/works/weblidos.png';
 import thumbPronTaxi from '../public/images/works/prontaxi-principal.jpg';
+import thumbNuup from '../public/images/works/nuup_login.png';
 
 const Works = () => {
     return (
@@ -82,6 +83,11 @@ const Works = () => {
                     <Section delay={0.1}>
                         <WorkGridItem id="prontaxi" thumbnail={thumbPronTaxi}  title="Mi Taxi">
                             Mi Taxi Pasajero y Conductor
+                        </WorkGridItem>
+                    </Section>
+                    <Section delay={0.1}>
+                        <WorkGridItem id="nuup" thumbnail={thumbNuup}  title="Nuup">
+                            SISTEMA NUUP ERP
                         </WorkGridItem>
                     </Section>
                 </SimpleGrid>

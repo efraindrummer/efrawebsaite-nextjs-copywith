@@ -10,7 +10,9 @@ import {
     Icon,
     ListItem,
     useColorModeValue,
-    chakra
+    chakra,
+    Grid,
+    Text
 } from '@chakra-ui/react'
 //components
 import Section from '../components/section'
@@ -18,6 +20,7 @@ import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import { GridItem } from '../components/grid-item'
 import { BioSection, BioYear } from '../components/bio'
+import { Timeline } from '../components/timeline';
 import Image from "next/image"
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
@@ -38,23 +41,24 @@ const Home = () => {
     return (
         <Layout>
             <Container>
-                <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3}  mb={8} aling="center">
+                <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3}  mb={8} textAlign="center">
                     Hola, soy  Efrain May, Desarrollador de Software!
                 </Box>
                 
-                <Box display={{md:'flex'}}>
+                <Box display={{md:'flex'}} textAlign={{ base: 'center', md: 'left' }}>
                     <Box flexGrow={1}>
-                        <Heading as="h2" varlant="page-title">
+                        <Heading as="h2" variant="page-title">
                             Efrain May
                         </Heading>
-                        <p>Ingeniero En Computacion ( Musician / Programmer 💛 )</p>
+                        <Text>Ingeniero en Computación (Musician / Programmer 💛)</Text>
                     </Box>
                 </Box>
+                
                 <Box 
                     flexShrink={0} 
                     mt={{base: 4, md: 6}} 
                     ml={{md: 6}} 
-                    align="center"
+                    textAlign="center"
                 >
                     <ProfileImage 
                         borderColor="whiteAlpha.800" 
@@ -71,31 +75,45 @@ const Home = () => {
                 </Box>
 
                 <Section delay={0.2}>
-                    <Heading as="h3" varlant="section-title">
+                    <Heading as="h3" variant="section-title">
                         Sobre Mi
                     </Heading>
                     <Paragraph>
-                        Actualmente soy es un Ingeniero de Software en SUDSOLUTIONS especialmente en el area de desarrollo mobile!
+                        Actualmente soy Ingeniero de Software en SUDSOLUTIONS, especializado en el desarrollo móvil.
                         <br />
                         <br />
-                        Apasionado por la tecnologia, a lo largo del tiempo he agarrado experiencia en el desarrollo
-                        de productos en empresas como TuProp, Telecom Bet-Gui, actualmente me desempeño en
-                        tecnologias JavaScript, usando React, Next, Node y Angular, tambien desarrollo aplicaciones moviles con Flutter 
-                        & Dart.
+                        Apasionado por la tecnología, he adquirido experiencia en el desarrollo de productos en empresas como TuProp, Telecom Bet-Gui. Actualmente me especializo en tecnologías JavaScript como React, Next.js, Node.js y Angular, además de desarrollar aplicaciones móviles con Flutter & Dart.
                     </Paragraph>
                     <Box align="center" my={4}>
-                        <NextLink href="https://www.dropbox.com/s/8l0axe4qee8ea0j/Curriculum%20CV%20Simple%20Blanco%20y%20Negro.pdf?dl=0" target="_blank">
+                        <NextLink href="https://www.dropbox.com/s/8l0axe4qee8ea0j/Curriculum%20CV%20Simple%20Blanco%20y%20Negro.pdf?dl=0" passHref>
                             <Button rightIcon={<ChevronRightIcon />} colorScheme="red">
                                 Descarga mi CV
                             </Button>
                         </NextLink>
                     </Box>
                 </Section>
+
                 <Section delay={0.2}>
-                    <Heading as="h2" varlant="section-title">
+                    <Timeline />
+                </Section>
+                
+                <Section delay={0.2}>
+                    <Heading as="h2" variant="section-title">
                         Estudios & Certificaciones
                     </Heading>
-                    <br />
+                    <SimpleGrid columns={[1, 2, 2]} gap={6}>
+                    <BioSection>
+                        <BioYear>2024</BioYear>
+                        Kubernetes & Docker en AWS
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2024</BioYear>             
+                        ABAP Para funcionales - Creación de reportes
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2024</BioYear>             
+                        Fiori SAPUI5 - Herramientas de Desarrollo y Construcción de Aplicaciones
+                    </BioSection>
                     <BioSection>
                         <BioYear>2022</BioYear>
                         Ingeniero En Computacion - Universidad Autonoma Del Carmen
@@ -180,9 +198,12 @@ const Home = () => {
                         <BioYear>2019</BioYear>
                         Tecnico en Redes de Datos - Fundacion Carlos Slim
                     </BioSection>
+                        {/* Añade más elementos aquí */}
+                    </SimpleGrid>
                 </Section>
+                
                 <Section delay={0.2}>
-                    <Heading as="h3" varlant="section-title">
+                    <Heading as="h3" variant="section-title">
                         I ♥
                     </Heading>
                     <Paragraph>
@@ -191,7 +212,7 @@ const Home = () => {
                 </Section>
 
                 <Section delay={0.3}>
-                    <Heading as="h3" varlant="section-title">
+                    <Heading as="h3" variant="section-title">
                         En la Red  
                     </Heading>
                     <List>
@@ -199,7 +220,7 @@ const Home = () => {
                             <Link href="https://github.com/efraindrummer" target="_blank">
                                 <Button
                                     variant="ghost" 
-                                    colorScheme="blackAlpha.900" 
+                                    colorScheme="blackAlpha" 
                                     leftIcon={<Icon as={IoLogoGithub} />}
                                 >
                                     @efraindrummer
@@ -241,9 +262,7 @@ const Home = () => {
                         </ListItem>
                     </List>
 
-                    <br />
-
-                    <SimpleGrid columns={[1,2,2]} gap={6}>
+                    <SimpleGrid columns={[1,2,2]} gap={6} mt={6}>
                         <GridItem
                             href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
                             title="Flutter ChatApp" 
@@ -264,7 +283,6 @@ const Home = () => {
         </Layout>
     )
 }
-
 
 export default Home
 export { getServerSideProps } from '../components/chakra'
