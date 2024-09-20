@@ -40,7 +40,7 @@ export const TimelineItem = ({ year, title, description, subtitle, isRight }) =>
             p={6}
             borderRadius="lg"
             boxShadow="xl"
-            maxWidth="45%" // Ajuste para evitar que ocupe demasiado espacio
+            maxWidth="70%" // Ajuste para evitar que ocupe demasiado espacio
             textAlign={isRight ? "right" : "left"}
             position="relative"
             _before={{
