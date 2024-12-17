@@ -87,6 +87,9 @@ const Navbar = props => {
                     <LinkItem href="/others" path={path}>
                         Skills
                     </LinkItem>
+                    <LinkItem href="/github" path={path}>
+                        Contribuciones
+                    </LinkItem>
                 </Stack>
 
                 <Box flex={1} align="right">

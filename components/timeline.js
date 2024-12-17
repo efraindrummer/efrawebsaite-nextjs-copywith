@@ -1,132 +1,163 @@
-import { Box, Flex, Text, VStack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack, Image, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaCircle } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
-export const TimelineItem = ({ year, title, description, subtitle, isRight }) => {
-    // Llamar a useColorModeValue fuera de cualquier condición
-    const yearColor = useColorModeValue("blue.500", "blue.300");
-    const titleColor = useColorModeValue("purple.700", "purple.300");
-    const bgColor = useColorModeValue('gray.100', 'gray.700');
-    const borderColor = useColorModeValue('gray.100', 'gray.700');
-    const textColor = useColorModeValue("gray.700", "gray.300");
-  
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+// Configuracion centralizada de colores
+const colors = {
+  year: { light: "blue.500", dark: "blue.300" },
+  title: { light: "purple.700", dark: "purple.300" },
+  bg: { light: "gray.100", dark: "gray.700" },
+  border: { light: "gray.200", dark: "gray.600" },
+  text: { light: "gray.700", dark: "gray.300" },
+};
+
+export const TimelineItem = ({ year, title, description, subtitle, isRight, logo }) => {
+  const yearColor = useColorModeValue(colors.year.light, colors.year.dark);
+  const titleColor = useColorModeValue(colors.title.light, colors.title.dark);
+  const bgColor = useColorModeValue(colors.bg.light, colors.bg.dark);
+  const borderColor = useColorModeValue(colors.border.light, colors.border.dark);
+  const textColor = useColorModeValue(colors.text.light, colors.text.dark);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <Flex
+        direction={{ base: "column", md: isRight ? "row-reverse" : "row" }}
+        align="center"
+        justify="space-between"
+        mb={12}
+        w="full"
       >
-        <Flex
-          direction={isRight ? "row-reverse" : "row"}
-          align="center"
-          justify="space-between"
-          mb={12}
-          w="full"
+        <Box display="flex" justifyContent="center" alignItems="center" mb={{ base: 4, md: 0 }}>
+          {logo && (
+            <Image
+              src={logo}
+              boxSize={{ base: "60px", md: "80px" }}
+              borderRadius="full"
+              boxShadow="lg"
+              alt="Company Logo"
+              mx={{ base: 0, md: isRight ? 0 : 6 }}
+              my={{ base: 4, md: 0 }}
+            />
+          )}
+        </Box>
+
+        <Box
+          bg={bgColor}
+          p={6}
+          borderRadius="xl"
+          boxShadow="2xl"
+          borderWidth={2}
+          borderColor={borderColor}
+          maxWidth={{ base: "100%", md: "70%" }}
+          textAlign={{ base: "center", md: isRight ? "right" : "left" }}
+          position="relative"
         >
-          <MotionBox
-            as={FaCircle}
-            size="12px"
-            color={yearColor}
-            mr={isRight ? 0 : 10}
-            ml={isRight ? 10 : 0}
-            whileHover={{ scale: 1.5 }}
-            transition="0.3s"
-          />
-          <Box
-            bg={bgColor}
-            p={6}
-            borderRadius="lg"
-            boxShadow="xl"
-            maxWidth="70%" // Ajuste para evitar que ocupe demasiado espacio
-            textAlign={isRight ? "right" : "left"}
-            position="relative"
-            _before={{
-              content: "''",
-              position: "absolute",
-              top: "50%",
-              left: isRight ? "auto" : "-8px",
-              right: isRight ? "-8px" : "auto",
-              transform: "translateY(-50%)",
-              borderWidth: "8px",
-              borderStyle: "solid",
-              borderColor: isRight ? `transparent transparent transparent ${borderColor}` : `transparent ${borderColor} transparent transparent`,
-            }}
-          >
-            <Text fontSize="lg" fontWeight="bold" color={yearColor} mb={2}>
+          <Flex align="center" mb={2} justify={{ base: "center", md: isRight ? "flex-end" : "flex-start" }}>
+            <MotionBox
+              as={FaCircle}
+              size="12px"
+              color={yearColor}
+              mr={isRight ? 0 : 4}
+              ml={isRight ? 4 : 0}
+              whileHover={{ scale: 1.5 }}
+              transition="0.3s"
+            />
+            <Text fontSize="lg" fontWeight="bold" color={yearColor}>
               {year}
             </Text>
-            <Text fontSize="md" fontWeight="semibold" color={titleColor} mb={2} letterSpacing="wide">
-              {title}
+          </Flex>
+          <Text fontSize="xl" fontWeight="bold" color={titleColor} mb={2}>
+            {title}
+          </Text>
+          {subtitle && (
+            <Text fontSize="md" fontStyle="italic" color={textColor} mb={4}>
+              {subtitle}
             </Text>
-            {subtitle && (
-              <Text fontSize="md" fontStyle="italic" color={textColor} mb={4}>
-                {subtitle}
-              </Text>
-            )}
-            <Text fontSize="sm" color={textColor}>
-              {description}
-            </Text>
-          </Box>
-        </Flex>
-      </motion.div>
-    );
-  };
+          )}
+          <Text fontSize="sm" color={textColor}>
+            {description}
+          </Text>
+        </Box>
+      </Flex>
+    </motion.div>
+  );
+};
 
 export const Timeline = () => {
   return (
-    <VStack align="center" p={8} position="relative">
-      <Box position="absolute" top={0} left="50%" h="100%" w="2px" bg="blue.500" zIndex={-1} />
-      <Text fontSize="2xl" fontWeight="bold" mb={8} color="purple.700">
+    <VStack align="center" p={8} position="relative" spacing={8}>
+      {/* Linea central */}
+      <Box position="absolute" top={0} left="50%" h="100%" w="4px" bgGradient="linear(to-b, blue.500, blue.300)" zIndex={-1} />
+      <Text fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mb={8} color="purple.700" textAlign="center">
         Mi Experiencia Laboral
       </Text>
 
-      <TimelineItem
-        year="NOVIEMBRE 2023 - ACTUAL"
-        title="DESARROLLADOR WEB"
-        subtitle="42A CORPORATIVO"
-        description="Implemento módulos en el sistema interno llamado NUUP usando tecnologías como Node.js, Sequelize, MySQL, Docker."
-        isRight={false}
-      />
-      <TimelineItem
-        year="FEBRERO 2023 - AGOSTO 2023"
-        title="LÍDER DE DESARROLLO"
-        subtitle="DELMER"
-        description="Lideré el desarrollo de apps móviles nativas con Kotlin, Flutter y despliegues en Google Play Store, uso de Google Maps, Geolocation y librerias Nativas, DB(FIREBASE)"
-        isRight={true}
-      />
-      <TimelineItem
-        year="MARZO 2022 - MARZO 2023"
-        title="SOFTWARE DEVELOPER"
-        subtitle="SUD SOLUTIONS"
-        description="Desarrollo backend con Node.js, Express, y aplicaciones móviles híbridas con Flutter. Desarrollo backend usando NodeJS, Express, PostgreSQL, MySQL, TypeScript, TypeORM entre otras, tambien implemento tecnologias de Desarrollo Mobile Hibrido con Dart & Flutter con gestiones de Estados usando PROVIDER & GETX.
-            Push Notifications usando Firebase messaging con app cerrada, app abierta y app en segundo plano.
-            Manejo de google maps, directions API, Geolocator, Polylines y Routes "
-        isRight={false}
-      />
-      <TimelineItem
-        year="AGOSTO 2022 - OCTUBRE 2022"
-        title="DESARROLLADOR"
-        subtitle="COTEMAR"
-        description="Frontend Developer con Vue.js y Javascript Vanilla."
-        isRight={true}
-      />
-      <TimelineItem
-        year="JUNIO 2021 - SEPTIEMBRE 2023"
-        title="INGENIERO DE SOPORTE TI"
-        subtitle="IRIUM"
-        description="Mantenimiento de servidores y soporte TI usando Linux."
-        isRight={false}
-      />
-      <TimelineItem
-        year="OCTUBRE 2020 - DICIEMBRE 2020"
-        title="SOFTWARE DEVELOPER ENGINEER"
-        subtitle="TUPROP"
-        description="Desarrollo Frontend con ReactJS."
-        isRight={true}
-      />
+      {/* Elementos del timeline */}
+      {timelineData.map((item, index) => (
+        <TimelineItem key={index} {...item} isRight={index % 2 === 0} />
+      ))}
     </VStack>
   );
 };
+
+const timelineData = [
+  {
+    year: "NOVIEMBRE 2024 - ACTUAL",
+    title: "DESARROLLADOR DE SOFTWARE",
+    subtitle: "DRAGADOS OFFSHORE MEXICO",
+    description: "Automatización de Tareas, Web Scrapping, VB6, VB.NET, SQL Server.",
+    logo: "/images/logos/dragados_offshore_logo.jpg",
+  },
+  {
+    year: "NOVIEMBRE 2023 - NOVIEMBRE 2024",
+    title: "DESARROLLADOR WEB",
+    subtitle: "42A CORPORATIVO",
+    description:
+      "Implemento módulos en el sistema interno llamado NUUP usando tecnologías como Node.js, Sequelize, MySQL, Docker.",
+    logo: "/images/logos/42A.png",
+  },
+  {
+    year: "FEBRERO 2023 - AGOSTO 2023",
+    title: "LÍDER DE DESARROLLO",
+    subtitle: "DELMER",
+    description:
+      "Lideré el desarrollo de apps móviles nativas con Kotlin, Flutter y despliegues en Google Play Store, uso de Google Maps, Geolocation y librerías Nativas, DB(FIREBASE).",
+    logo: "/images/logos/delmer.jpg",
+  },
+  {
+    year: "MARZO 2022 - MARZO 2023",
+    title: "SOFTWARE DEVELOPER",
+    subtitle: "SUD SOLUTIONS",
+    description:
+      "Desarrollo backend con Node.js, Express, y aplicaciones móviles híbridas con Flutter. Desarrollo backend usando NodeJS, Express, PostgreSQL, MySQL, TypeScript, TypeORM, y tecnologías de desarrollo mobile híbrido con Dart & Flutter.",
+    logo: "/images/logos/sudsolutions.png",
+  },
+  {
+    year: "AGOSTO 2022 - OCTUBRE 2022",
+    title: "DESARROLLADOR",
+    subtitle: "COTEMAR",
+    description: "Frontend Developer con Vue.js y JavaScript Vanilla.",
+    logo: "/images/logos/cotemar.jpg",
+  },
+  {
+    year: "JUNIO 2021 - SEPTIEMBRE 2023",
+    title: "INGENIERO DE SOPORTE TI",
+    subtitle: "IRIUM",
+    description: "Mantenimiento de servidores y soporte TI usando Linux.",
+    logo: "/images/logos/irium.jpg",
+  },
+  {
+    year: "OCTUBRE 2020 - DICIEMBRE 2020",
+    title: "SOFTWARE DEVELOPER ENGINEER",
+    subtitle: "TUPROP",
+    description: "Desarrollo Frontend con ReactJS.",
+    logo: "/images/logos/tuprop_logo.jpg",
+  },
+];

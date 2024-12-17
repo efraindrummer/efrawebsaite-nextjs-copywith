@@ -78,10 +78,10 @@ const Home = () => {
                         Sobre Mi
                     </Heading>
                     <Paragraph>
-                        Actualmente soy Ingeniero de Software en SUDSOLUTIONS, especializado en el desarrollo móvil.
+                        Actualmente soy Ingeniero de Software en DRAGADOS OFFSHORE MEXICO.
                         <br />
                         <br />
-                        Apasionado por la tecnología, he adquirido experiencia en el desarrollo de productos en empresas como TuProp, Telecom Bet-Gui. Actualmente me especializo en tecnologías JavaScript como React, Next.js, Node.js y Angular, además de desarrollar aplicaciones móviles con Flutter & Dart.
+                        Soy un apasionado de la tecnologia, he pasado por diversas tecnologias dando solucion a problemas de la vida real, cuento con amplia experiencia en el rubro PETROLERO, O&M, LOGISTICA Y MONITOREO GPS automatizando procesos con tecnologia.
                     </Paragraph>
                     <Box align="center" my={4}>
                         <NextLink href="https://www.dropbox.com/s/8l0axe4qee8ea0j/Curriculum%20CV%20Simple%20Blanco%20y%20Negro.pdf?dl=0" passHref>
