@@ -108,6 +108,7 @@ const Navbar = props => {
                                 <MenuItem as={MenuLink} href="/works">Portafolio</MenuItem>
                                 <MenuItem as={MenuLink} href="/posts">Publicaciones</MenuItem>
                                 <MenuItem as={MenuLink} href="/others">Skills</MenuItem>
+                                <MenuItem as={MenuLink} href="/github">Contribuciones</MenuItem>
                                
                                 <MenuItem 
                                     as={Link} 

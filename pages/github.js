@@ -2,6 +2,7 @@ import { Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid, Button, 
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
+import { Title } from "../components/work";
 
 const MotionBox = motion(Box);
 
@@ -49,6 +50,7 @@ const Github = () => {
 
   return (
     <VStack spacing={8} p={8} align="center" w="full">
+      <Title>Contribuciones</Title>
       <Heading
         as="h1"
         fontSize={{ base: "2xl", md: "4xl" }}
