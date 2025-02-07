@@ -112,7 +112,7 @@ const timelineData = [
     year: "NOVIEMBRE 2024 - ACTUAL",
     title: "DESARROLLADOR DE SOFTWARE",
     subtitle: "DRAGADOS OFFSHORE MEXICO",
-    description: "Automatización de Tareas, Web Scrapping, VB6, VB.NET, SQL Server.",
+    description: "VB6, VB.NET, SQL Server.",
     logo: "/images/logos/dragados_offshore_logo.jpg",
   },
   {
