@@ -1,6 +1,6 @@
 import { 
   Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid, 
-  Button, Image, Select, useColorModeValue, HStack, Divider 
+  Button, Image, Select, useColorModeValue, HStack 
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
@@ -15,8 +15,7 @@ const Github = () => {
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
   const perPage = 6;
