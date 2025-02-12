@@ -4,13 +4,14 @@ import { FaCircle } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
-// Configuracion centralizada de colores
+// Configuración centralizada de colores
 const colors = {
   year: { light: "blue.500", dark: "blue.300" },
   title: { light: "purple.700", dark: "purple.300" },
-  bg: { light: "gray.100", dark: "gray.700" },
+  bg: { light: "whiteAlpha.900", dark: "gray.800" },
   border: { light: "gray.200", dark: "gray.600" },
   text: { light: "gray.700", dark: "gray.300" },
+  timelineLine: { light: "blue.300", dark: "blue.500" },
 };
 
 export const TimelineItem = ({ year, title, description, subtitle, isRight, logo }) => {
@@ -34,25 +35,32 @@ export const TimelineItem = ({ year, title, description, subtitle, isRight, logo
         mb={12}
         w="full"
       >
-        <Box display="flex" justifyContent="center" alignItems="center" mb={{ base: 4, md: 0 }}>
-          {logo && (
+        {/* Logo */}
+        {logo && (
+          <Box
+            p={2}
+            bg="white"
+            borderRadius="full"
+            boxShadow="md"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Image
               src={logo}
               boxSize={{ base: "60px", md: "80px" }}
               borderRadius="full"
-              boxShadow="lg"
               alt="Company Logo"
-              mx={{ base: 0, md: isRight ? 0 : 6 }}
-              my={{ base: 4, md: 0 }}
             />
-          )}
-        </Box>
+          </Box>
+        )}
 
+        {/* Caja de contenido */}
         <Box
           bg={bgColor}
           p={6}
           borderRadius="xl"
-          boxShadow="2xl"
+          boxShadow="xl"
           borderWidth={2}
           borderColor={borderColor}
           maxWidth={{ base: "100%", md: "70%" }}
@@ -91,10 +99,27 @@ export const TimelineItem = ({ year, title, description, subtitle, isRight, logo
 };
 
 export const Timeline = () => {
+  const timelineLineColor = useColorModeValue(colors.timelineLine.light, colors.timelineLine.dark);
+
   return (
-    <VStack align="center" p={8} position="relative" spacing={8}>
-      {/* Linea central */}
-      <Box position="absolute" top={0} left="50%" h="100%" w="4px" bgGradient="linear(to-b, blue.500, blue.300)" zIndex={-1} />
+    <VStack align="center" p={8} position="relative" spacing={8} w="full">
+      {/* Línea central animada */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "50%",
+          width: "4px",
+          height: "100%",
+          background: `linear-gradient(to bottom, ${timelineLineColor}, ${colors.year.light})`,
+          zIndex: -1,
+          transform: "translateX(-50%)",
+        }}
+        initial={{ height: 0 }}
+        animate={{ height: "100%" }}
+        transition={{ duration: 1.5 }}
+      />
+
       <Text fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mb={8} color="purple.700" textAlign="center">
         Mi Experiencia Laboral
       </Text>

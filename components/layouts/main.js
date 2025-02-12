@@ -18,7 +18,7 @@ const Main = ({ children, router }) => {
 
             <Container maxW="container.md" pt={14}>
                 <NoSsr>
-                    <Image src='/images/flutter.jpg' mb={6} borderRadius={10} alt="js"/>
+                    <Image src='/images/javascript.jpg' mb={6} borderRadius={10} alt="js"/>
                 </NoSsr>
                 {children}
                 <Footer />

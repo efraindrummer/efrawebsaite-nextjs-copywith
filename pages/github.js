@@ -1,14 +1,19 @@
-import { Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid, Button, Image, Select, useColorModeValue } from "@chakra-ui/react";
+import { 
+  Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid, 
+  Button, Image, Select, useColorModeValue, HStack, Divider 
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 import { Title } from "../components/work";
+import { FaGithub, FaUsers, FaCodeBranch } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
 const Github = () => {
-  const [data, setData] = useState([]);
+  const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -16,16 +21,26 @@ const Github = () => {
 
   const perPage = 6;
   const username = "efraindrummer";
+  const cardBg = useColorModeValue("gray.100", "gray.700");
+  const textColor = useColorModeValue("gray.700", "gray.300");
+  const headingColor = useColorModeValue("blue.500", "blue.300");
+  const years = Array.from({ length: 5 }, (_, i) => new Date().getFullYear() - i); // Últimos 5 años
 
   useEffect(() => {
+    // Fetch Profile Data
+    fetch(`https://api.github.com/users/${username}`)
+      .then((res) => res.json())
+      .then((data) => setProfile(data))
+      .catch((error) => setError(error.message));
+
+    // Fetch Repos
     fetch(`https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${currentPage}`)
       .then((res) => {
         if (!res.ok) throw new Error("Error fetching GitHub data");
-        setTotalPages(parseInt(res.headers.get("link")?.match(/page=(\d+)>; rel="last"/)?.[1] || 1, 10));
         return res.json();
       })
       .then((data) => {
-        setData(data);
+        setRepos(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -33,12 +48,6 @@ const Github = () => {
         setLoading(false);
       });
   }, [currentPage]);
-
-  const cardBg = useColorModeValue("gray.100", "gray.700");
-  const textColor = useColorModeValue("gray.700", "gray.300");
-  const headingColor = useColorModeValue("blue.500", "blue.300");
-
-  const years = Array.from({ length: 5 }, (_, i) => new Date().getFullYear() - i); // Últimos 5 años
 
   if (loading) return <Spinner size="xl" m="auto" display="block" mt={20} />;
   if (error)
@@ -51,20 +60,39 @@ const Github = () => {
   return (
     <VStack spacing={8} p={8} align="center" w="full">
       <Title>Contribuciones</Title>
-      <Heading
-        as="h1"
-        fontSize={{ base: "2xl", md: "4xl" }}
-        color={headingColor}
-        textAlign="center"
-        fontWeight="bold"
-      >
-        Mis Contribuciones y Proyectos
-      </Heading>
-      <Text fontSize={{ base: "sm", md: "md" }} color={textColor} textAlign="center">
-        Aquí puedes ver una lista de mis proyectos en GitHub, con detalles de commits, estrellas y forks.
-      </Text>
 
-      {/* GitHub Stats */}
+      {/* 🔥 Sección de perfil de GitHub */}
+      {profile && (
+        <MotionBox 
+          p={6} 
+          boxShadow="2xl" 
+          borderRadius="lg" 
+          bg={cardBg} 
+          w="full" 
+          textAlign="center"
+          whileHover={{ scale: 1.05 }}
+        >
+          <Avatar size="2xl" src={profile.avatar_url} mx="auto" />
+          <Heading mt={4} size="lg" color={headingColor}>{profile.name}</Heading>
+          <Text color={textColor}>{profile.bio || "Desarrollador apasionado"}</Text>
+          <HStack justify="center" mt={4} spacing={6}>
+            <Flex align="center">
+              <FaUsers /> <Text ml={2}>{profile.followers} seguidores</Text>
+            </Flex>
+            <Flex align="center">
+              <FaCodeBranch /> <Text ml={2}>{profile.public_repos} repositorios</Text>
+            </Flex>
+            <Flex align="center">
+              <FaGithub /> <Text ml={2}>@{profile.login}</Text>
+            </Flex>
+          </HStack>
+          <Button as="a" href={profile.html_url} target="_blank" colorScheme="blue" mt={4}>
+            Ver Perfil en GitHub
+          </Button>
+        </MotionBox>
+      )}
+
+      {/* 🔥 GitHub Stats */}
       <Flex direction={{ base: "column", md: "row" }} gap={6} justify="center" align="center">
         <Image
           src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&include_all_commits=true&count_private=true&theme=dracula&hide_border=false`}
@@ -82,21 +110,14 @@ const Github = () => {
         />
       </Flex>
 
+      {/* 🔥 Gráfico de contribuciones */}
       <Box boxShadow="2xl" borderRadius="lg" overflow="hidden" mt={8} p={4} w="100%">
         <Heading as="h2" size="lg" color={headingColor} textAlign="center" mb={4}>
           Contribuciones - {selectedYear}
         </Heading>
-        <Select
-          value={selectedYear}
-          onChange={(e) => setSelectedYear(e.target.value)}
-          maxW="200px"
-          mx="auto"
-          mb={4}
-        >
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} maxW="200px" mx="auto" mb={4}>
           {years.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
+            <option key={year} value={year}>{year}</option>
           ))}
         </Select>
         <Image
@@ -106,8 +127,9 @@ const Github = () => {
         />
       </Box>
 
+      {/* 🔥 Lista de repositorios */}
       <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8} w="full">
-        {data.map((repo) => (
+        {repos.map((repo) => (
           <MotionBox
             key={repo.id}
             bg={cardBg}
@@ -118,47 +140,20 @@ const Github = () => {
             transition={{ duration: 0.3 }}
           >
             <Flex justify="space-between" align="center" mb={2}>
-              <Heading as="h3" size="md" color={headingColor} noOfLines={1}>
-                {repo.name}
-              </Heading>
+              <Heading as="h3" size="md" color={headingColor} noOfLines={1}>{repo.name}</Heading>
               <Avatar size="sm" src={`https://github.com/${repo.owner.login}.png`} />
             </Flex>
-            <Text fontSize="sm" color={textColor} noOfLines={2} mb={4}>
-              {repo.description || "No description available"}
-            </Text>
+            <Text fontSize="sm" color={textColor} noOfLines={2} mb={4}>{repo.description || "No description available"}</Text>
             <Flex justify="space-between" fontSize="sm" color="gray.500">
               <Text>⭐ {repo.stargazers_count}</Text>
               <Text>🍴 {repo.forks_count}</Text>
             </Flex>
             <NextLink href={repo.html_url} passHref>
-              <Text as="a" color="blue.400" mt={4} display="inline-block" fontWeight="bold" _hover={{ textDecoration: "underline" }}>
-                Ver Proyecto →
-              </Text>
+              <Button colorScheme="blue" mt={4} w="full">Ver Proyecto</Button>
             </NextLink>
           </MotionBox>
         ))}
       </SimpleGrid>
-
-      {/* Paginación */}
-      <Flex justify="center" mt={4} gap={4}>
-        <Button
-          colorScheme="blue"
-          isDisabled={currentPage === 1}
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-        >
-          Anterior
-        </Button>
-        <Text fontWeight="bold" color={textColor}>
-          Página {currentPage} de {totalPages}
-        </Text>
-        <Button
-          colorScheme="blue"
-          isDisabled={currentPage === totalPages}
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-        >
-          Siguiente
-        </Button>
-      </Flex>
     </VStack>
   );
 };

@@ -17,11 +17,13 @@
     "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "axios": "^1.7.9",
     "framer-motion": "^8.5.5",
     "next": "^13.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
+    "react-icons": "^4.12.0",
+    "recharts": "^2.15.1",
     "three": "^0.148.0"
   },
   "devDependencies": {
