@@ -1,6 +1,6 @@
 import {
   Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid,
-  Button, Image, Select, useColorModeValue, HStack, Tooltip
+  Button, Image, Select, useColorModeValue, HStack
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
