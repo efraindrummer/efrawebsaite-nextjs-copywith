@@ -2,98 +2,140 @@ import {
     Container,
     Heading,
     SimpleGrid
-} from '@chakra-ui/react'
-import { WorkGridItem } from '../components/grid-item'
-import Section from '../components/section'
-import Layout from '../components/layouts/article'
+  } from '@chakra-ui/react'
+  import { WorkGridItem } from '../components/grid-item'
+  import Section from '../components/section'
+  import Layout from '../components/layouts/article'
+  
+  import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
+  import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
+  import thumbEfraCode from '../public/images/links/web-efrain.jpg'
+  import thumbSchoolApp from '../public/images/links/school.jpg'
+  import thumbSnappApp from '../public/images/links/snapp.jpg'
+  import thumbAccessControl from '../public/images/links/control-acceso.jpg'
+  import thumbAngularAdmin from '../public/images/links/angular-admin.jpg'
+  import thumbSeguridad360 from '../public/images/links/seguridad360.jpg'
+  import thumbSudMonitoreoControl from '../public/images/links/panel_sudmonitoreocontrol.jpg'
+  import thumbLidosPizza from '../public/images/works/weblidos.png'
+  import thumbPronTaxi from '../public/images/works/prontaxi-principal.jpg'
+  import thumbNuup from '../public/images/works/nuup_login.png'
+  import thumbTesla from '../public/images/works/tesla.png'
+  import thumbSudsolutions from '../public/images/works/sudsolutionserp.png'
 
 
-import thumbYouTubeChatApp from '../public/images/links/chatapp.jpg'
-import thumbAngularGiphyAPI from '../public/images/links/angular-coding.jpg'
-import thumbEfraCode from '../public/images/links/web-efrain.jpg'
-import thumbSchoolApp from '../public/images/links/school.jpg'
-import thumbSnappApp from '../public/images/links/snapp.jpg'
-import thumbAccessControl from '../public/images/links/control-acceso.jpg'
-import thumbAngularAdmin from '../public/images/links/angular-admin.jpg'
-import thumbSeguridad360 from '../public/images/links/seguridad360.jpg'
-import thumbSudMonitoreoControl from '../public/images/links/panel_sudmonitoreocontrol.jpg'
-import thumbLidosPizza from '../public/images/works/weblidos.png';
-import thumbPronTaxi from '../public/images/works/prontaxi-principal.jpg';
-import thumbNuup from '../public/images/works/nuup_login.png';
-
-const Works = () => {
+  
+  const projects = [
+    {
+      id: 'chatapp',
+      title: 'ChatApp',
+      thumbnail: thumbYouTubeChatApp,
+      description: 'Aplicación simple de mapas con chat integrado'
+    },
+    {
+      id: 'giphy',
+      title: 'Buscador de Gifs',
+      thumbnail: thumbAngularGiphyAPI,
+      description: 'App en Angular para buscar GIFs con Giphy API'
+    },
+    {
+      id: 'efracode',
+      title: 'Sitio Web EfraCode',
+      thumbnail: thumbEfraCode,
+      description: 'Sitio web hecho con HTML, CSS y JavaScript puro'
+    },
+    {
+      id: 'school',
+      title: 'School Desktop App',
+      thumbnail: thumbSchoolApp,
+      description: 'App de escritorio para registro de alumnos'
+    },
+    {
+      id: 'control_acceso',
+      title: 'Sistema de Control de Acceso',
+      thumbnail: thumbAccessControl,
+      description: 'Plataforma para gestionar accesos y usuarios'
+    },
+    {
+      id: 'angularadmin',
+      title: 'Administrador de Pacientes',
+      thumbnail: thumbAngularAdmin,
+      description: 'Dashboard Angular para gestión médica'
+    },
+    {
+      id: 'snapp',
+      title: 'Snapp Taxi Driver',
+      thumbnail: thumbSnappApp,
+      description: 'App móvil para conductores tipo Uber'
+    },
+    {
+      id: 'seguridad360',
+      title: 'Seguridad 360',
+      thumbnail: thumbSeguridad360,
+      description: 'Sistema completo de monitoreo y seguridad'
+    },
+    {
+      id: 'sudmonitoreo-control',
+      title: 'Sud Monitoreo y Control',
+      thumbnail: thumbSudMonitoreoControl,
+      description: 'Panel para control industrial y seguridad'
+    },
+    {
+      id: 'lidosapp',
+      title: 'Lidos Pizza',
+      thumbnail: thumbLidosPizza,
+      description: 'Landing page para restaurante de pizzas'
+    },
+    {
+      id: 'prontaxi',
+      title: 'Mi Taxi (Pasajero & Conductor)',
+      thumbnail: thumbPronTaxi,
+      description: 'App para movilidad urbana con dos perfiles'
+    },
+    {
+      id: 'nuup',
+      title: 'Sistema NUUP ERP',
+      thumbnail: thumbNuup,
+      description: 'Sistema de gestión empresarial completo'
+    },
+    {
+      id: 'tesla',
+      title: 'Clon Web de Tesla',
+      thumbnail: thumbTesla,
+      description: 'Clon responsivo del sitio oficial de Tesla'
+    },
+    {
+      id: 'sudsolutions',
+      title: 'sudsolutions',
+      thumbnail: thumbSudsolutions,
+      description: 'Sistema ERP para gestión empresarial'
+    }
+  ]
+  
+  const Works = () => {
     return (
-        <Layout>
-            <Container>
-                <Heading as="h3" fontSize={20} mb={4}>
-                    Portafolio
-                </Heading>
-
-                <SimpleGrid columns={[1,1,2]} gap={6}>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="chatapp" title="ChatApp" thumbnail={thumbYouTubeChatApp}>
-                            Una simple aplicacion de Mapas
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="giphy" title="Angular Giphy" thumbnail={thumbAngularGiphyAPI}>
-                            Una aplicacion de web para buscar gifs echo en Angular
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="efracode" title="Website efracode" thumbnail={thumbEfraCode}>
-                            Una pagina web echa en html, css, js
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="school" title="Desktop App" thumbnail={thumbSchoolApp}>
-                            Aplicacion de Registro de alumnos para una escuela
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="control_acceso" thumbnail={thumbAccessControl} title="Control de Acceso">
-                            Sistema de Control de Acceso
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="angularadmin" thumbnail={thumbAngularAdmin} title="Administrador de Pacientes">
-                            Sistema de Control de Acceso
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="snapp" thumbnail={thumbSnappApp} title="Snapp">
-                            Snapp Taxi Driver
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="seguridad360" thumbnail={thumbSeguridad360} title="Seguridad360">
-                            Seguridad360
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="sudmonitoreo-control" thumbnail={thumbSudMonitoreoControl} title="Sud Monitoreo y Control">
-                            Sud Monitoreo y Control
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="lidosapp" thumbnail={thumbLidosPizza}  title="Lidos Pizza">
-                            Lidos Pizza
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="prontaxi" thumbnail={thumbPronTaxi}  title="Mi Taxi">
-                            Mi Taxi Pasajero y Conductor
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.1}>
-                        <WorkGridItem id="nuup" thumbnail={thumbNuup}  title="Nuup">
-                            SISTEMA NUUP ERP
-                        </WorkGridItem>
-                    </Section>
-                </SimpleGrid>
-            </Container>
-        </Layout>
+      <Layout>
+        <Container maxW="container.lg" pt={6}>
+          <Heading as="h3" fontSize="2xl" mb={6} textAlign="center">
+            Portafolio de Proyectos
+          </Heading>
+  
+          <SimpleGrid columns={[1, 2, 3]} gap={6}>
+            {projects.map((proj, idx) => (
+              <Section key={proj.id} delay={0.1 * (idx + 1)}>
+                <WorkGridItem
+                  id={proj.id}
+                  title={proj.title}
+                  thumbnail={proj.thumbnail}
+                >
+                  {proj.description}
+                </WorkGridItem>
+              </Section>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Layout>
     )
-}
-
-export default Works
+  }
+  
+  export default Works
+  

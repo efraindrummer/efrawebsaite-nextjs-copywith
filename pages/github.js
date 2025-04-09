@@ -1,6 +1,6 @@
-import { 
-  Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid, 
-  Button, Image, Select, useColorModeValue, HStack 
+import {
+  Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid,
+  Button, Image, Select, useColorModeValue, HStack, Tooltip
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
@@ -22,133 +22,147 @@ const Github = () => {
   const username = "efraindrummer";
   const cardBg = useColorModeValue("gray.100", "gray.700");
   const textColor = useColorModeValue("gray.700", "gray.300");
-  const headingColor = useColorModeValue("blue.500", "blue.300");
-  const years = Array.from({ length: 5 }, (_, i) => new Date().getFullYear() - i); // Últimos 5 años
+  const headingColor = useColorModeValue("teal.500", "teal.300");
+  const years = Array.from({ length: 5 }, (_, i) => new Date().getFullYear() - i);
 
   useEffect(() => {
-    // Fetch Profile Data
     fetch(`https://api.github.com/users/${username}`)
-      .then((res) => res.json())
-      .then((data) => setProfile(data))
-      .catch((error) => setError(error.message));
+      .then(res => res.json())
+      .then(data => setProfile(data))
+      .catch(err => setError(err.message));
 
-    // Fetch Repos
     fetch(`https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${currentPage}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Error fetching GitHub data");
+      .then(res => {
+        if (!res.ok) throw new Error("Error al obtener datos de GitHub");
         return res.json();
       })
-      .then((data) => {
+      .then(data => {
         setRepos(data);
         setLoading(false);
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch(err => {
+        setError(err.message);
         setLoading(false);
       });
   }, [currentPage]);
 
-  if (loading) return <Spinner size="xl" m="auto" display="block" mt={20} />;
+  if (loading) return <Spinner size="xl" mt={20} mx="auto" display="block" />;
   if (error)
     return (
-      <Text color="red.500" textAlign="center" mt={10} fontSize="lg" fontWeight="bold">
-        {error}. Verifica que tu nombre de usuario y la API de GitHub sean correctos.
-      </Text>
+      <Box textAlign="center" mt={10}>
+        <Text fontSize="lg" color="red.500" fontWeight="bold">
+          ⚠️ {error}
+        </Text>
+        <Text>Verifica que el nombre de usuario y la API de GitHub sean correctos.</Text>
+      </Box>
     );
 
   return (
-    <VStack spacing={8} p={8} align="center" w="full">
-      <Title>Contribuciones</Title>
+    <VStack spacing={10} px={6} py={10} align="center" w="full">
+      <Title>Contribuciones en GitHub</Title>
 
-      {/* 🔥 Sección de perfil de GitHub */}
       {profile && (
-        <MotionBox 
-          p={6} 
-          boxShadow="2xl" 
-          borderRadius="lg" 
-          bg={cardBg} 
-          w="full" 
+        <MotionBox
+          p={6}
+          boxShadow="2xl"
+          borderRadius="xl"
+          bg={cardBg}
+          w="full"
+          maxW="lg"
           textAlign="center"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.03 }}
         >
-          <Avatar size="2xl" src={profile.avatar_url} mx="auto" />
-          <Heading mt={4} size="lg" color={headingColor}>{profile.name}</Heading>
-          <Text color={textColor}>{profile.bio || "Desarrollador apasionado"}</Text>
+          <Avatar size="2xl" src={profile.avatar_url} name={profile.name} mx="auto" />
+          <Heading mt={4} size="lg" color={headingColor}>
+            {profile.name || "Usuario de GitHub"}
+          </Heading>
+          <Text color={textColor} fontSize="sm" mt={1}>
+            {profile.bio || "Desarrollador apasionado por la tecnología"}
+          </Text>
           <HStack justify="center" mt={4} spacing={6}>
-            <Flex align="center">
-              <FaUsers /> <Text ml={2}>{profile.followers} seguidores</Text>
-            </Flex>
-            <Flex align="center">
-              <FaCodeBranch /> <Text ml={2}>{profile.public_repos} repositorios</Text>
-            </Flex>
-            <Flex align="center">
-              <FaGithub /> <Text ml={2}>@{profile.login}</Text>
-            </Flex>
+            <Flex align="center" gap={2}><FaUsers />{profile.followers}</Flex>
+            <Flex align="center" gap={2}><FaCodeBranch />{profile.public_repos}</Flex>
+            <Flex align="center" gap={2}><FaGithub />@{profile.login}</Flex>
           </HStack>
-          <Button as="a" href={profile.html_url} target="_blank" colorScheme="blue" mt={4}>
-            Ver Perfil en GitHub
+          <Button
+            as="a"
+            href={profile.html_url}
+            target="_blank"
+            mt={4}
+            colorScheme="teal"
+            size="sm"
+            variant="solid"
+          >
+            Ver perfil en GitHub
           </Button>
         </MotionBox>
       )}
 
-      {/* 🔥 GitHub Stats */}
       <Flex direction={{ base: "column", md: "row" }} gap={6} justify="center" align="center">
         <Image
           src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&include_all_commits=true&count_private=true&theme=dracula&hide_border=false`}
           alt="GitHub Stats"
-          boxShadow="xl"
-          borderRadius="lg"
+          boxShadow="lg"
+          borderRadius="xl"
           maxW={{ base: "100%", md: "50%" }}
         />
         <Image
           src={`https://github-readme-stats.vercel.app/api/top-langs?username=${username}&layout=compact&langs_count=6&theme=dracula&hide_border=false`}
           alt="Top Languages"
-          boxShadow="xl"
-          borderRadius="lg"
+          boxShadow="lg"
+          borderRadius="xl"
           maxW={{ base: "100%", md: "50%" }}
         />
       </Flex>
 
-      {/* 🔥 Gráfico de contribuciones */}
-      <Box boxShadow="2xl" borderRadius="lg" overflow="hidden" mt={8} p={4} w="100%">
+      <Box boxShadow="lg" borderRadius="xl" p={6} w="100%">
         <Heading as="h2" size="lg" color={headingColor} textAlign="center" mb={4}>
-          Contribuciones - {selectedYear}
+          Contribuciones {selectedYear}
         </Heading>
-        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} maxW="200px" mx="auto" mb={4}>
-          {years.map((year) => (
+        <Select
+          value={selectedYear}
+          onChange={(e) => setSelectedYear(e.target.value)}
+          maxW="200px"
+          mx="auto"
+          mb={4}
+        >
+          {years.map(year => (
             <option key={year} value={year}>{year}</option>
           ))}
         </Select>
         <Image
           src={`https://github-contributions-api.deno.dev/${username}.svg?year=${selectedYear}`}
-          alt="GitHub Contributions Calendar"
+          alt={`GitHub Contributions ${selectedYear}`}
           width="100%"
+          borderRadius="lg"
         />
       </Box>
 
-      {/* 🔥 Lista de repositorios */}
-      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8} w="full">
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={6} w="full">
         {repos.map((repo) => (
           <MotionBox
             key={repo.id}
             bg={cardBg}
-            p={6}
-            borderRadius="lg"
-            boxShadow="xl"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            p={5}
+            borderRadius="xl"
+            boxShadow="lg"
+            whileHover={{ scale: 1.03 }}
+            transition="0.3s ease"
           >
-            <Flex justify="space-between" align="center" mb={2}>
-              <Heading as="h3" size="md" color={headingColor} noOfLines={1}>{repo.name}</Heading>
-              <Avatar size="sm" src={`https://github.com/${repo.owner.login}.png`} />
-            </Flex>
-            <Text fontSize="sm" color={textColor} noOfLines={2} mb={4}>{repo.description || "No description available"}</Text>
-            <Flex justify="space-between" fontSize="sm" color="gray.500">
+            <Heading as="h3" size="md" color={headingColor} noOfLines={1} mb={2}>
+              {repo.name}
+            </Heading>
+            <Text fontSize="sm" color={textColor} noOfLines={3} mb={3}>
+              {repo.description || "Sin descripción disponible"}
+            </Text>
+            <Flex justify="space-between" fontSize="xs" color="gray.500">
               <Text>⭐ {repo.stargazers_count}</Text>
               <Text>🍴 {repo.forks_count}</Text>
             </Flex>
             <NextLink href={repo.html_url} passHref>
-              <Button colorScheme="blue" mt={4} w="full">Ver Proyecto</Button>
+              <Button mt={4} colorScheme="teal" w="full" size="sm">
+                Ver Repositorio
+              </Button>
             </NextLink>
           </MotionBox>
         ))}
