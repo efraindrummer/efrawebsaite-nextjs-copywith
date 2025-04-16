@@ -20,7 +20,8 @@ import {
   import thumbPronTaxi from '../public/images/works/prontaxi-principal.jpg'
   import thumbNuup from '../public/images/works/nuup_login.png'
   import thumbTesla from '../public/images/works/tesla.png'
-  import thumbSudsolutions from '../public/images/works/sudsolutionserp.png'
+  import thumbChatIA from '../public/images/links/chatbot_ia.jpg'
+  import thumbDragadosOffshore from '../public/images/links/dragados_offshorelogo.jpg'
 
 
   
@@ -104,10 +105,16 @@ import {
       description: 'Clon responsivo del sitio oficial de Tesla'
     },
     {
-      id: 'sudsolutions',
-      title: 'sudsolutions',
-      thumbnail: thumbSudsolutions,
-      description: 'Sistema ERP para gestión empresarial'
+      id: 'chatbot_ia',
+      title: 'ChatBotIA',
+      thumbnail: thumbChatIA,
+      description: 'Assistant IA para negocio local'
+    },
+    {
+      id: 'dragados_offshore',
+      title: 'Dragados Offshore',
+      thumbnail: thumbDragadosOffshore,
+      description: 'ERP para dragados offshore, migrando de VB6 a .NET(en proceso)'
     }
   ]
   
