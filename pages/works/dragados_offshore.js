@@ -8,7 +8,7 @@ const DragadosOffshore = () => {
         <Layout title="dragados_offshore">
             <Container>
                 <Title>
-                    ERP Software para Dragados Offshore <Badge>2023</Badge>
+                    ERP Software para Dragados Offshore <Badge>2025></Badge>
                 </Title>
 
                 <P>
@@ -64,9 +64,6 @@ const DragadosOffshore = () => {
                     Gracias a estas mejoras, la aplicación no solo es más rápida y confiable, sino que también está preparada para integrarse con sistemas modernos y adaptarse a futuras actualizaciones tecnológicas.
                 </P>
 
-                <P>
-                    En futuras iteraciones, planeo añadir funcionalidades avanzadas como análisis predictivo, soporte multilingüe y una interfaz de voz para facilitar aún más la interacción.
-                </P>
             </Container>
         </Layout>
     )
