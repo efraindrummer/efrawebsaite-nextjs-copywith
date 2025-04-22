@@ -101,6 +101,19 @@ const Home = () => {
                         Estudios & Certificaciones
                     </Heading>
                     <SimpleGrid columns={[1, 2, 2]} gap={6}>
+
+                    <BioSection>
+                        <BioYear>2025</BioYear>
+                        Desarrollo Web con IA: OpenIA - DeepSeek, JS y NodeJS
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2025</BioYear>
+                        Android Enterprise Certified Professional
+                    </BioSection>
+                    <BioSection>
+                        <BioYear>2025</BioYear>
+                        Android Enterprise Certified Associate
+                    </BioSection>
                     <BioSection>
                         <BioYear>2024</BioYear>
                         Kubernetes & Docker en AWS
@@ -108,10 +121,6 @@ const Home = () => {
                     <BioSection>
                         <BioYear>2024</BioYear>             
                         ABAP Para funcionales - Creación de reportes
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2024</BioYear>             
-                        Fiori SAPUI5 - Herramientas de Desarrollo y Construcción de Aplicaciones
                     </BioSection>
                     <BioSection>
                         <BioYear>2022</BioYear>
@@ -127,14 +136,6 @@ const Home = () => {
                     </BioSection>
                     <BioSection>
                         <BioYear>2021</BioYear>
-                        Flutter Advance Course - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
-                        Flutter: Tu guía completa de desarrollo para IOS y Android - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
                         Flutter Avanzado: Lleva tu conocimiento al siguiente nivel - Udemy
                     </BioSection>
                     <BioSection>
@@ -142,28 +143,8 @@ const Home = () => {
                         React: Aplicaciones en tiempo real con Socket-io - Udemy
                     </BioSection>
                     <BioSection>
-                        <BioYear>2021</BioYear>
-                        React: De cero a Experto(Hooks y MERN) - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
-                        Angular De 0 a Experto (Edicion 2021) - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Angular Avanzado: Lleva tus bases al siguiente nivel - MEAN (Edicion 2021) - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Visual Studio Code: Mejora tu velocidad para codificar - Udemy
-                    </BioSection>
-                    <BioSection>
                         <BioYear>2020</BioYear>
                         Git de principiante a experto, GitHub, GitLab, Azure, Commit - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Javascript Moderno Guia Definitiva Construye + 15 proyectos - Udemy
                     </BioSection>
                     <BioSection>
                         <BioYear>2020</BioYear>
@@ -171,32 +152,9 @@ const Home = () => {
                     </BioSection>
                     <BioSection>
                         <BioYear>2020</BioYear>
-                        Programador Web: Cookies y Sesiones en PHP - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Backend con Node JS y Express - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
                         Diplomado Tecnico en BIG DATA - Fundacion Carlos Slim
                     </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Administrador de Servidores - Fundacion Carlos Slim
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2019</BioYear>
-                        Administrador de Bases de Datos - Fundacion Carlos Slim
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2019</BioYear>
-                        Curador de Datos - Fundacion Carlos Slim
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2019</BioYear>
-                        Tecnico en Redes de Datos - Fundacion Carlos Slim
-                    </BioSection>
+
                         {/* Añade más elementos aquí */}
                     </SimpleGrid>
                 </Section>

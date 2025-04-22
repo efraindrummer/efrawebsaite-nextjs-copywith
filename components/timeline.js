@@ -48,7 +48,7 @@ export const TimelineItem = ({ year, title, description, subtitle, isRight, logo
           >
             <Image
               src={logo}
-              boxSize={{ base: "60px", md: "80px" }}
+              boxSize={{ base: "50px", md: "70px" }}
               borderRadius="full"
               alt="Company Logo"
             />
@@ -63,7 +63,7 @@ export const TimelineItem = ({ year, title, description, subtitle, isRight, logo
           boxShadow="xl"
           borderWidth={2}
           borderColor={borderColor}
-          maxWidth={{ base: "100%", md: "70%" }}
+          maxWidth={{ base: "90%", md: "70%" }}
           textAlign={{ base: "center", md: isRight ? "right" : "left" }}
           position="relative"
         >
