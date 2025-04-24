@@ -87,6 +87,9 @@ const Navbar = props => {
                     <LinkItem href="/others" path={path}>
                         Skills
                     </LinkItem>
+                    <LinkItem href="/coding" path={path}>
+                        Coding
+                    </LinkItem>
                     <LinkItem href="/github" path={path}>
                         Contribuciones
                     </LinkItem>
@@ -108,6 +111,7 @@ const Navbar = props => {
                                 <MenuItem as={MenuLink} href="/works">Portafolio</MenuItem>
                                 <MenuItem as={MenuLink} href="/posts">Publicaciones</MenuItem>
                                 <MenuItem as={MenuLink} href="/others">Skills</MenuItem>
+                                <MenuItem as={MenuLink} href="/coding">Coding</MenuItem>
                                 <MenuItem as={MenuLink} href="/github">Contribuciones</MenuItem>
                                
                                 <MenuItem 

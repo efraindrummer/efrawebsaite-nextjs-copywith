@@ -13,7 +13,7 @@
   "author": "@efracode",
   "license": "MIT",
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.15",
+    "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -23,6 +23,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
+    "react-live": "^4.1.8",
+    "react-syntax-highlighter": "^15.6.1",
+    "react-zoom-pan-pinch": "^3.7.0",
     "recharts": "^2.15.1",
     "three": "^0.148.0"
   },
