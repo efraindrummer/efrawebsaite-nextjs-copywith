@@ -22,6 +22,7 @@ import {
   import thumbTesla from '../public/images/works/tesla.png'
   import thumbChatIA from '../public/images/links/chatbot_ia.jpg'
   import thumbDragadosOffshore from '../public/images/links/dragados_offshorelogo.jpg'
+  import thumbMardeAmor from '../public/images/works/mardeamor.png'
 
 
   
@@ -115,6 +116,12 @@ import {
       title: 'Dragados Offshore',
       thumbnail: thumbDragadosOffshore,
       description: 'ERP para dragados offshore, migrando de VB6 a .NET(en proceso)'
+    },
+    {
+      id: 'mardeamor',
+      title: 'Mar de Amor',
+      thumbnail: thumbMardeAmor,
+      description: 'Sitio web para gestionar charcutería premium, con módulos de catálogo, cursos y productos.'
     }
   ]
   
