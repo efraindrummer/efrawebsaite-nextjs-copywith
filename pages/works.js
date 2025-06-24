@@ -23,6 +23,7 @@ import {
   import thumbChatIA from '../public/images/links/chatbot_ia.jpg'
   import thumbDragadosOffshore from '../public/images/links/dragados_offshorelogo.jpg'
   import thumbMardeAmor from '../public/images/works/mardeamor.png'
+  import thumbCCONSULTORES from '../public/images/works/cconsultores.png'
 
 
   
@@ -122,6 +123,12 @@ import {
       title: 'Mar de Amor',
       thumbnail: thumbMardeAmor,
       description: 'Sitio web para gestionar charcutería premium, con módulos de catálogo, cursos y productos.'
+    },
+    {
+      id: 'cconsultores',
+      title: 'Carretino Consultores',
+      thumbnail: thumbCCONSULTORES,
+      description: 'Sitio web SPA para potenciar la presencia digital de un despacho contable.'
     }
   ]
   
