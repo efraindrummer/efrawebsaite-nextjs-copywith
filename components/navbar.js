@@ -17,10 +17,13 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from "./theme-toggle-button"
+import { motion } from 'framer-motion'
+
+const MotionBox = motion(Box)
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('gray.700', 'gray.300')
 
     return (
         <Link
@@ -28,9 +31,19 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
             href={href}
             scroll={false}
             p={2}
-            bg={active ? 'grassTeal' : undefined}
-            color={active ? '#202023' : inactiveColor}
+            px={4}
+            borderRadius="md"
+            bg={active ? useColorModeValue('blue.600', 'blue.500') : undefined}
+            color={active ? 'white' : inactiveColor}
+            fontWeight={active ? '600' : '500'}
             target={target}
+            transition="all 0.2s"
+            _hover={{
+                bg: active 
+                    ? useColorModeValue('blue.700', 'blue.600') 
+                    : useColorModeValue('gray.100', 'gray.700'),
+                textDecoration: 'none'
+            }}
             {...props}
         >
             {children}
@@ -51,21 +64,23 @@ const Navbar = props => {
             position="fixed"
             as="nav"
             w="100%"
-            bg={useColorModeValue('#ffffff40', '#20202380')}
-            style={{backdropFilter: 'blur(10px)'}}
-            zIndex={1}
+            bg={useColorModeValue('white', '#0f1419')}
+            zIndex={2}
+            boxShadow="sm"
+            borderBottom="1px"
+            borderColor={useColorModeValue('gray.200', 'gray.700')}
             {...props}
         >
             <Container 
                 display="flex" 
-                p={2} 
-                maxW="container.md" 
+                p={3} 
+                maxW="container.xl" 
                 wrap="wrap" 
                 align="center" 
                 justify="space-between"
             >
-                <Flex aling="center" mr={5}>
-                    <Heading as="h1" size="lg" letterSpacing={'tighter'}>
+                <Flex align="center" mr={5}>
+                    <Heading as="h1" size="lg" letterSpacing="tight" fontWeight="700">
                         <Logo />
                     </Heading>
                 </Flex>
@@ -103,20 +118,63 @@ const Navbar = props => {
                                 as={IconButton} 
                                 icon={<HamburgerIcon />} 
                                 variant="outline" 
-                                aria-label="Options" 
+                                aria-label="Options"
+                                borderRadius="md"
+                                _hover={{
+                                    bg: useColorModeValue('gray.100', 'gray.700')
+                                }}
                             />
-                            <MenuList>
-                                
-                                <MenuItem as={MenuLink} href="/">Efrain May</MenuItem>
-                                <MenuItem as={MenuLink} href="/works">Portafolio</MenuItem>
-                                <MenuItem as={MenuLink} href="/posts">Publicaciones</MenuItem>
-                                <MenuItem as={MenuLink} href="/others">Skills</MenuItem>
-                                <MenuItem as={MenuLink} href="/coding">Coding</MenuItem>
-                                <MenuItem as={MenuLink} href="/github">Contribuciones</MenuItem>
-                               
+                            <MenuList
+                                bg={useColorModeValue('white', 'gray.800')}
+                                borderColor={useColorModeValue('gray.200', 'gray.700')}
+                                boxShadow="lg"
+                            >
+                                <MenuItem 
+                                    as={MenuLink} 
+                                    href="/"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
+                                >
+                                    Efrain May
+                                </MenuItem>
+                                <MenuItem 
+                                    as={MenuLink} 
+                                    href="/works"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
+                                >
+                                    Portafolio
+                                </MenuItem>
+                                <MenuItem 
+                                    as={MenuLink} 
+                                    href="/posts"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
+                                >
+                                    Publicaciones
+                                </MenuItem>
+                                <MenuItem 
+                                    as={MenuLink} 
+                                    href="/others"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
+                                >
+                                    Skills
+                                </MenuItem>
+                                <MenuItem 
+                                    as={MenuLink} 
+                                    href="/coding"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
+                                >
+                                    Coding
+                                </MenuItem>
+                                <MenuItem 
+                                    as={MenuLink} 
+                                    href="/github"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
+                                >
+                                    Contribuciones
+                                </MenuItem>
                                 <MenuItem 
                                     as={Link} 
                                     href="https://github.com/efraindrummer/efrawebsaite-nextjs-copywith"
+                                    _hover={{ bg: useColorModeValue('gray.100', 'gray.700') }}
                                 >
                                     View Code
                                 </MenuItem>

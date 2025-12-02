@@ -11,17 +11,20 @@ import {
     ListItem,
     useColorModeValue,
     chakra,
-    Text
+    Text,
+    Flex,
+    Badge,
+    VStack,
+    HStack,
 } from '@chakra-ui/react'
 //components
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
-import Paragraph from '../components/paragraph'
-import { GridItem } from '../components/grid-item'
 import { BioSection, BioYear } from '../components/bio'
 import { Timeline } from '../components/timeline';
 import Image from "next/image"
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { motion } from 'framer-motion'
 import {
     IoLogoTwitter,
     IoLogoInstagram,
@@ -36,59 +39,217 @@ const ProfileImage = chakra(Image, {
     shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 })
 
+const MotionBox = motion(Box)
+const MotionFlex = motion(Flex)
+
 const Home = () => {
     return (
         <Layout>
-            <Container>
-                <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3}  mb={8} textAlign="center">
-                    Hola, soy  Efrain May, Desarrollador de Software!
-                </Box>
-                
-                <Box display={{md:'flex'}} textAlign={{ base: 'center', md: 'left' }}>
-                    <Box flexGrow={1}>
-                        <Heading as="h2" variant="page-title">
-                            Efrain May
-                        </Heading>
-                        <Text>Ingeniero en Computación (Musician / Programmer 💛)</Text>
-                    </Box>
-                </Box>
-                
-                <Box 
-                    flexShrink={0} 
-                    mt={{base: 4, md: 6}} 
-                    ml={{md: 6}} 
-                    textAlign="center"
+            <Container maxW="container.lg">
+                {/* Hero Section Profesional */}
+                <Box
+                    borderBottom="1px"
+                    borderColor={useColorModeValue('gray.200', 'gray.700')}
+                    pb={8}
+                    mb={10}
+                    mt={4}
                 >
-                    <ProfileImage 
-                        borderColor="whiteAlpha.800" 
-                        borderWidth={2} 
-                        borderStyle="groove" 
-                        maxWidth="100px" 
-                        display="inline-block"
-                        borderRadius="full"
-                        src="/images/efraindrummer.jpeg"
-                        alt="Profile Image"
-                        width="100"
-                        height="100"
-                    />
+                    <Flex
+                        direction={{ base: 'column', md: 'row' }}
+                        align={{ base: 'center', md: 'flex-start' }}
+                        gap={8}
+                    >
+                        <Box
+                            flexShrink={0}
+                            position="relative"
+                        >
+                            <ProfileImage 
+                                border="4px solid"
+                                borderColor={useColorModeValue('gray.200', 'gray.700')}
+                                maxWidth="180px" 
+                                display="inline-block"
+                                borderRadius="lg"
+                                src="/images/efraindrummer.jpeg"
+                                alt="Efrain May - Ingeniero en Computación"
+                                width="180"
+                                height="180"
+                                boxShadow={useColorModeValue('lg', 'dark-lg')}
+                            />
+                        </Box>
+                        
+                        <VStack align={{ base: 'center', md: 'flex-start' }} spacing={3} flex={1}>
+                            <Heading
+                                as="h1"
+                                size="2xl"
+                                color={useColorModeValue('gray.800', 'white')}
+                                fontWeight="700"
+                                letterSpacing="tight"
+                            >
+                                Efrain May
+                            </Heading>
+                            <Text
+                                fontSize="xl"
+                                color={useColorModeValue('gray.600', 'gray.400')}
+                                fontWeight="500"
+                            >
+                                Ingeniero en Computación
+                            </Text>
+                            <Text
+                                fontSize="lg"
+                                color={useColorModeValue('blue.600', 'blue.300')}
+                                fontWeight="600"
+                            >
+                                Ingeniero de Software | DRAGADOS OFFSHORE MEXICO
+                            </Text>
+                            <HStack spacing={2} pt={2} flexWrap="wrap">
+                                <Badge 
+                                    colorScheme="gray" 
+                                    fontSize="sm" 
+                                    px={3} 
+                                    py={1}
+                                    fontWeight="600"
+                                    textTransform="none"
+                                >
+                                    Full Stack Developer
+                                </Badge>
+                                <Badge 
+                                    colorScheme="gray" 
+                                    fontSize="sm" 
+                                    px={3} 
+                                    py={1}
+                                    fontWeight="600"
+                                    textTransform="none"
+                                >
+                                    Cloud Computing
+                                </Badge>
+                                <Badge 
+                                    colorScheme="gray" 
+                                    fontSize="sm" 
+                                    px={3} 
+                                    py={1}
+                                    fontWeight="600"
+                                    textTransform="none"
+                                >
+                                    DevOps
+                                </Badge>
+                            </HStack>
+                        </VStack>
+                    </Flex>
                 </Box>
 
                 <Section delay={0.2}>
-                    <Heading as="h3" variant="section-title">
-                        Sobre Mi
-                    </Heading>
-                    <Paragraph>
-                        Actualmente soy Ingeniero de Software en DRAGADOS OFFSHORE MEXICO.
-                        <br />
-                        <br />
-                        Soy un apasionado de la tecnologia, he pasado por diversas tecnologias dando solucion a problemas de la vida real, cuento con amplia experiencia en el rubro PETROLERO, O&M, LOGISTICA Y MONITOREO GPS automatizando procesos con tecnologia.
-                    </Paragraph>
-                    <Box align="center" my={4}>
-                        <NextLink href="https://www.dropbox.com/s/8l0axe4qee8ea0j/Curriculum%20CV%20Simple%20Blanco%20y%20Negro.pdf?dl=0" passHref>
-                            <Button rightIcon={<ChevronRightIcon />} colorScheme="red">
-                                Descarga mi CV
-                            </Button>
-                        </NextLink>
+                    <Box mb={10}>
+                        <Heading
+                            as="h2"
+                            size="lg"
+                            mb={6}
+                            color={useColorModeValue('gray.800', 'white')}
+                            borderBottom="2px"
+                            borderColor={useColorModeValue('blue.500', 'blue.400')}
+                            pb={2}
+                            display="inline-block"
+                        >
+                            Perfil Profesional
+                        </Heading>
+                        
+                        <Box
+                            p={6}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            mb={6}
+                        >
+                            <Text
+                                fontSize="lg"
+                                lineHeight="tall"
+                                color={useColorModeValue('gray.700', 'gray.300')}
+                                textAlign="justify"
+                            >
+                                Ingeniero de Software con sólida experiencia en el desarrollo de soluciones tecnológicas para diversos sectores industriales. Especializado en la automatización de procesos y optimización de sistemas en los rubros petrolero, O&M, logística y monitoreo GPS. Comprometido con la implementación de tecnologías innovadoras que aporten valor y eficiencia a las organizaciones.
+                            </Text>
+                        </Box>
+
+                        <Heading
+                            as="h3"
+                            size="md"
+                            mb={4}
+                            color={useColorModeValue('gray.700', 'gray.200')}
+                        >
+                            Áreas de Especialización
+                        </Heading>
+                        
+                        <SimpleGrid columns={[1, 2, 4]} gap={4} mb={6}>
+                            <Box
+                                p={4}
+                                bg={useColorModeValue('blue.50', 'gray.700')}
+                                borderRadius="md"
+                                borderLeft="4px"
+                                borderColor="blue.500"
+                            >
+                                <Text fontWeight="bold" color={useColorModeValue('blue.700', 'blue.300')}>
+                                    Sector Petrolero
+                                </Text>
+                                <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                    Sistemas empresariales
+                                </Text>
+                            </Box>
+                            <Box
+                                p={4}
+                                bg={useColorModeValue('green.50', 'gray.700')}
+                                borderRadius="md"
+                                borderLeft="4px"
+                                borderColor="green.500"
+                            >
+                                <Text fontWeight="bold" color={useColorModeValue('green.700', 'green.300')}>
+                                    O&M
+                                </Text>
+                                <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                    Operación y mantenimiento
+                                </Text>
+                            </Box>
+                            <Box
+                                p={4}
+                                bg={useColorModeValue('orange.50', 'gray.700')}
+                                borderRadius="md"
+                                borderLeft="4px"
+                                borderColor="orange.500"
+                            >
+                                <Text fontWeight="bold" color={useColorModeValue('orange.700', 'orange.300')}>
+                                    Logística
+                                </Text>
+                                <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                    Gestión y optimización
+                                </Text>
+                            </Box>
+                            <Box
+                                p={4}
+                                bg={useColorModeValue('red.50', 'gray.700')}
+                                borderRadius="md"
+                                borderLeft="4px"
+                                borderColor="red.500"
+                            >
+                                <Text fontWeight="bold" color={useColorModeValue('red.700', 'red.300')}>
+                                    Monitoreo GPS
+                                </Text>
+                                <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                    Sistemas de tracking
+                                </Text>
+                            </Box>
+                        </SimpleGrid>
+
+                        <Box textAlign="center">
+                            <NextLink href="https://www.dropbox.com/s/8l0axe4qee8ea0j/Curriculum%20CV%20Simple%20Blanco%20y%20Negro.pdf?dl=0" passHref>
+                                <Button
+                                    size="lg"
+                                    colorScheme="blue"
+                                    rightIcon={<ChevronRightIcon />}
+                                    variant="solid"
+                                >
+                                    Descargar CV
+                                </Button>
+                            </NextLink>
+                        </Box>
                     </Box>
                 </Section>
 
@@ -97,144 +258,449 @@ const Home = () => {
                 </Section>
                 
                 <Section delay={0.2}>
-                    <Heading as="h2" variant="section-title">
-                        Estudios & Certificaciones
-                    </Heading>
-                    <SimpleGrid columns={[1, 2, 2]} gap={6}>
+                    <Box mb={10}>
+                        <Heading
+                            as="h2"
+                            size="lg"
+                            mb={6}
+                            color={useColorModeValue('gray.800', 'white')}
+                            borderBottom="2px"
+                            borderColor={useColorModeValue('blue.500', 'blue.400')}
+                            pb={2}
+                            display="inline-block"
+                        >
+                            Formación Académica y Certificaciones
+                        </Heading>
+                        
+                        <SimpleGrid columns={[1, 1, 2]} gap={5} mt={6}>
 
-                    <BioSection>
-                        <BioYear>2025</BioYear>
-                        Desarrollo Web con IA: OpenIA - DeepSeek, JS y NodeJS
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2025</BioYear>
-                        Android Enterprise Certified Professional
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2025</BioYear>
-                        Android Enterprise Certified Associate
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2024</BioYear>
-                        Kubernetes & Docker en AWS
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2024</BioYear>             
-                        ABAP Para funcionales - Creación de reportes
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2022</BioYear>
-                        Ingeniero En Computacion - Universidad Autonoma Del Carmen
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
-                        Cloud Computing - Google Certification
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
-                        Desarrollo de Apps Moviles - Google Certification
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
-                        Flutter Avanzado: Lleva tu conocimiento al siguiente nivel - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2021</BioYear>
-                        React: Aplicaciones en tiempo real con Socket-io - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Git de principiante a experto, GitHub, GitLab, Azure, Commit - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Scrum Master Certificacion - Udemy
-                    </BioSection>
-                    <BioSection>
-                        <BioYear>2020</BioYear>
-                        Diplomado Tecnico en BIG DATA - Fundacion Carlos Slim
-                    </BioSection>
-
-                        {/* Añade más elementos aquí */}
-                    </SimpleGrid>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2025</BioYear>
+                                Desarrollo Web con IA: OpenIA - DeepSeek, JS y NodeJS
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2025</BioYear>
+                                Android Enterprise Certified Professional
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2025</BioYear>
+                                Android Enterprise Certified Associate
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2024</BioYear>
+                                Kubernetes & Docker en AWS
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2024</BioYear>             
+                                ABAP Para funcionales - Creación de reportes
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2022</BioYear>
+                                Ingeniero En Computacion - Universidad Autonoma Del Carmen
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2021</BioYear>
+                                Cloud Computing - Google Certification
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2021</BioYear>
+                                Desarrollo de Apps Moviles - Google Certification
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2021</BioYear>
+                                Flutter Avanzado: Lleva tu conocimiento al siguiente nivel - Udemy
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2021</BioYear>
+                                React: Aplicaciones en tiempo real con Socket-io - Udemy
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2020</BioYear>
+                                Git de principiante a experto, GitHub, GitLab, Azure, Commit - Udemy
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2020</BioYear>
+                                Scrum Master Certificacion - Udemy
+                            </BioSection>
+                        </Box>
+                        <Box
+                            p={5}
+                            bg={useColorModeValue('white', 'gray.800')}
+                            borderRadius="md"
+                            border="1px"
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}
+                            _hover={{
+                                boxShadow: 'md',
+                                borderColor: useColorModeValue('blue.400', 'blue.500')
+                            }}
+                            transition="all 0.2s"
+                        >
+                            <BioSection>
+                                <BioYear>2020</BioYear>
+                                Diplomado Tecnico en BIG DATA - Fundacion Carlos Slim
+                            </BioSection>
+                        </Box>
+                        </SimpleGrid>
+                    </Box>
                 </Section>
                 
                 <Section delay={0.2}>
-                    <Heading as="h3" variant="section-title">
-                        I ♥
-                    </Heading>
-                    <Paragraph>
-                        Arte, Musica, Gatos, Baterista.
-                    </Paragraph>
+                    <Box mb={10}>
+                        <Heading
+                            as="h2"
+                            size="lg"
+                            mb={6}
+                            color={useColorModeValue('gray.800', 'white')}
+                            borderBottom="2px"
+                            borderColor={useColorModeValue('blue.500', 'blue.400')}
+                            pb={2}
+                            display="inline-block"
+                        >
+                            Intereses Personales
+                        </Heading>
+                        
+                        <HStack spacing={4} flexWrap="wrap" mt={6}>
+                            <Badge 
+                                variant="subtle" 
+                                colorScheme="gray" 
+                                fontSize="md" 
+                                px={4} 
+                                py={2}
+                                fontWeight="500"
+                            >
+                                Arte
+                            </Badge>
+                            <Badge 
+                                variant="subtle" 
+                                colorScheme="gray" 
+                                fontSize="md" 
+                                px={4} 
+                                py={2}
+                                fontWeight="500"
+                            >
+                                Música
+                            </Badge>
+                            <Badge 
+                                variant="subtle" 
+                                colorScheme="gray" 
+                                fontSize="md" 
+                                px={4} 
+                                py={2}
+                                fontWeight="500"
+                            >
+                                Batería
+                            </Badge>
+                        </HStack>
+                    </Box>
                 </Section>
 
                 <Section delay={0.3}>
-                    <Heading as="h3" variant="section-title">
-                        En la Red  
-                    </Heading>
-                    <List>
-                        <ListItem>
-                            <Link href="https://github.com/efraindrummer" target="_blank">
-                                <Button
-                                    variant="ghost" 
-                                    colorScheme="blackAlpha" 
-                                    leftIcon={<Icon as={IoLogoGithub} />}
+                    <Box mb={10}>
+                        <Heading
+                            as="h2"
+                            size="lg"
+                            mb={6}
+                            color={useColorModeValue('gray.800', 'white')}
+                            borderBottom="2px"
+                            borderColor={useColorModeValue('blue.500', 'blue.400')}
+                            pb={2}
+                            display="inline-block"
+                        >
+                            Contacto Profesional
+                        </Heading>
+                        <List spacing={3} mt={6}>
+                            <ListItem>
+                                <Link 
+                                    href="https://github.com/efraindrummer" 
+                                    target="_blank"
+                                    display="flex"
+                                    alignItems="center"
+                                    p={3}
+                                    borderRadius="md"
+                                    border="1px"
+                                    borderColor={useColorModeValue('gray.200', 'gray.700')}
+                                    bg={useColorModeValue('white', 'gray.800')}
+                                    _hover={{
+                                        borderColor: useColorModeValue('gray.400', 'gray.500'),
+                                        textDecoration: 'none'
+                                    }}
+                                    transition="all 0.2s"
                                 >
-                                    @efraindrummer
-                                </Button>
-                            </Link>
-                        </ListItem>
-                        <ListItem>
-                            <Link href="https://twitter.com/efraindrummer7" target="_blank">
-                                <Button
-                                    variant="ghost" 
-                                    colorScheme="teal" 
-                                    leftIcon={<Icon as={IoLogoTwitter} />}
+                                    <Icon as={IoLogoGithub} boxSize={6} mr={3} />
+                                    <Box>
+                                        <Text fontWeight="600">GitHub</Text>
+                                        <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                            @efraindrummer
+                                        </Text>
+                                    </Box>
+                                </Link>
+                            </ListItem>
+                            
+                            <ListItem>
+                                <Link 
+                                    href="https://twitter.com/efraindrummer7" 
+                                    target="_blank"
+                                    display="flex"
+                                    alignItems="center"
+                                    p={3}
+                                    borderRadius="md"
+                                    border="1px"
+                                    borderColor={useColorModeValue('gray.200', 'gray.700')}
+                                    bg={useColorModeValue('white', 'gray.800')}
+                                    _hover={{
+                                        borderColor: useColorModeValue('gray.400', 'gray.500'),
+                                        textDecoration: 'none'
+                                    }}
+                                    transition="all 0.2s"
                                 >
-                                    @efraindrummer7
-                                </Button>
-                            </Link>
-                        </ListItem>
-                        <ListItem>
-                            <Link href="https://www.instagram.com/efraincode/" target="_blank">
-                                <Button
-                                    variant="ghost" 
-                                    colorScheme="red" 
-                                    leftIcon={<Icon as={IoLogoInstagram} />}
+                                    <Icon as={IoLogoTwitter} boxSize={6} mr={3} color={useColorModeValue('twitter.500', 'twitter.300')} />
+                                    <Box>
+                                        <Text fontWeight="600">Twitter</Text>
+                                        <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                            @efraindrummer7
+                                        </Text>
+                                    </Box>
+                                </Link>
+                            </ListItem>
+                            
+                            <ListItem>
+                                <Link 
+                                    href="https://www.instagram.com/efraincode/" 
+                                    target="_blank"
+                                    display="flex"
+                                    alignItems="center"
+                                    p={3}
+                                    borderRadius="md"
+                                    border="1px"
+                                    borderColor={useColorModeValue('gray.200', 'gray.700')}
+                                    bg={useColorModeValue('white', 'gray.800')}
+                                    _hover={{
+                                        borderColor: useColorModeValue('gray.400', 'gray.500'),
+                                        textDecoration: 'none'
+                                    }}
+                                    transition="all 0.2s"
                                 >
-                                    @efracode
-                                </Button>
-                            </Link>
-                        </ListItem>
-                        <ListItem>
-                            <Link href="https://www.facebook.com/Efrain.May/" target="_blank">
-                                <Button
-                                    variant="ghost" 
-                                    colorScheme="blue" 
-                                    leftIcon={<Icon as={IoLogoFacebook} />}
+                                    <Icon as={IoLogoInstagram} boxSize={6} mr={3} color={useColorModeValue('pink.500', 'pink.300')} />
+                                    <Box>
+                                        <Text fontWeight="600">Instagram</Text>
+                                        <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                            @efracode
+                                        </Text>
+                                    </Box>
+                                </Link>
+                            </ListItem>
+                            
+                            <ListItem>
+                                <Link 
+                                    href="https://www.facebook.com/Efrain.May/" 
+                                    target="_blank"
+                                    display="flex"
+                                    alignItems="center"
+                                    p={3}
+                                    borderRadius="md"
+                                    border="1px"
+                                    borderColor={useColorModeValue('gray.200', 'gray.700')}
+                                    bg={useColorModeValue('white', 'gray.800')}
+                                    _hover={{
+                                        borderColor: useColorModeValue('gray.400', 'gray.500'),
+                                        textDecoration: 'none'
+                                    }}
+                                    transition="all 0.2s"
                                 >
-                                    Efrain May
-                                </Button>
-                            </Link>
-                        </ListItem>
-                    </List>
+                                    <Icon as={IoLogoFacebook} boxSize={6} mr={3} color={useColorModeValue('facebook.500', 'facebook.300')} />
+                                    <Box>
+                                        <Text fontWeight="600">Facebook</Text>
+                                        <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                                            Efrain May
+                                        </Text>
+                                    </Box>
+                                </Link>
+                            </ListItem>
+                        </List>
 
-                    <SimpleGrid columns={[1,2,2]} gap={6} mt={6}>
-                        <GridItem
-                            href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
-                            title="Flutter ChatApp" 
-                            thumbnail={thumbYouTubeChatApp}
-                        >
-                            Canal de YouTube
-                        </GridItem>
-                        <GridItem 
-                            href="https://www.youtube.com/watch?v=LafxuUXgvuQ" 
-                            title="Giphy App" 
-                            thumbnail={thumbAngularGiphyAPI}
-                        >
-                            Programando en Angular
-                        </GridItem>
-                    </SimpleGrid>
+                        
+                        <Box mt={8}>
+                            <Heading
+                                as="h3"
+                                size="md"
+                                mb={4}
+                                color={useColorModeValue('gray.700', 'gray.200')}
+                            >
+                                Contenido Destacado
+                            </Heading>
+                            <SimpleGrid columns={[1, 1, 2]} gap={4}>
+                                <GridItem
+                                    href="https://www.youtube.com/watch?v=u5PKQMYhYRk&t=3s" 
+                                    title="Flutter ChatApp" 
+                                    thumbnail={thumbYouTubeChatApp}
+                                >
+                                    Canal de YouTube
+                                </GridItem>
+                                <GridItem 
+                                    href="https://www.youtube.com/watch?v=LafxuUXgvuQ" 
+                                    title="Giphy App" 
+                                    thumbnail={thumbAngularGiphyAPI}
+                                >
+                                    Programando en Angular
+                                </GridItem>
+                            </SimpleGrid>
+                        </Box>
+                    </Box>
                 </Section>
             </Container>
         </Layout>
