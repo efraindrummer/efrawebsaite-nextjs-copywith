@@ -1,15 +1,16 @@
 import {
   Box, Flex, Text, VStack, Heading, Avatar, Spinner, SimpleGrid,
   Button, Image, Select, useColorModeValue, HStack, Container,
-  Stat, StatLabel, StatNumber, StatHelpText, Grid, Badge, Divider, Link
+  Stat, StatLabel, StatNumber, StatHelpText, Badge, Divider, Link
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaUsers, FaCodeBranch, FaStar, FaCode, FaBookmark } from "react-icons/fa";
 import Layout from '../components/layouts/article';
 
+// Componentes Motion
 const MotionBox = motion(Box);
-const MotionGrid = motion(Grid);
+const MotionGrid = motion(SimpleGrid);
 const MotionHeading = motion(Heading);
 
 // Variantes de animación
@@ -23,32 +24,22 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100
-    }
-  }
-};
-
-const scaleVariants = {
-  initial: { scale: 0.9, opacity: 0 },
-  animate: { 
-    scale: 1, 
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 15
-    }
-  }
-};
-
 const Github = () => {
+  // Todos los hooks deben estar al principio
+  const cardBg = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const headingColor = useColorModeValue('gray.800', 'white');
+  const accentColor = useColorModeValue('blue.600', 'blue.400');
+  const statBg = useColorModeValue('gray.50', 'gray.700');
+  const bgImage = useColorModeValue('github-light', 'github-dark');
+  const streakTheme = useColorModeValue('default', 'dark');
+  const streakBg = useColorModeValue('ffffff', '1a202c');
+  const streakStroke = useColorModeValue('2d3748', 'e2e8f0');
+  const streakRing = useColorModeValue('3182ce', '63b3ed');
+  const streakFire = useColorModeValue('3182ce', '63b3ed');
+  const streakLabel = useColorModeValue('2d3748', 'e2e8f0');
+  const trophyTheme = useColorModeValue('flat', 'onedark');
+
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
@@ -58,11 +49,7 @@ const Github = () => {
 
   const perPage = 9;
   const username = "efraindrummer";
-  const cardBg = useColorModeValue("white", "gray.800");
   const textColor = useColorModeValue("gray.600", "gray.300");
-  const headingColor = useColorModeValue("gray.800", "white");
-  const accentColor = useColorModeValue("blue.600", "blue.400");
-  const borderColor = useColorModeValue("gray.200", "gray.700");
   const years = Array.from({ length: 6 }, (_, i) => new Date().getFullYear() - i);
 
   useEffect(() => {
@@ -418,12 +405,12 @@ const Github = () => {
             </Flex>
             <Box
               overflow="auto"
-              bg={useColorModeValue('gray.50', 'gray.900')}
+              bg={statBg}
               borderRadius="md"
               p={4}
             >
               <Image
-                src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=${useColorModeValue('github-light', 'github-dark')}&hide_border=true&area=true&custom_title=Gráfico%20de%20Actividad%20${selectedYear}`}
+                src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&theme=${bgImage}&hide_border=true&area=true&custom_title=Gráfico%20de%20Actividad%20${selectedYear}`}
                 alt={`GitHub Activity ${selectedYear}`}
                 w="100%"
                 minW="600px"
@@ -636,7 +623,7 @@ const Github = () => {
               whileHover={{ scale: 1.05 }}
             >
               <Image
-                src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${useColorModeValue('default', 'dark')}&hide_border=true&background=${useColorModeValue('ffffff', '1a202c')}&stroke=${useColorModeValue('2d3748', 'e2e8f0')}&ring=${useColorModeValue('3182ce', '63b3ed')}&fire=${useColorModeValue('3182ce', '63b3ed')}&currStreakLabel=${useColorModeValue('2d3748', 'e2e8f0')}`}
+                src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${streakTheme}&hide_border=true&background=${streakBg}&stroke=${streakStroke}&ring=${streakRing}&fire=${streakFire}&currStreakLabel=${streakLabel}`}
                 alt="GitHub Streak"
                 mx="auto"
                 maxW="100%"
@@ -680,7 +667,7 @@ const Github = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
             >
               <Image
-                src={`https://github-profile-trophy.vercel.app/?username=${username}&theme=${useColorModeValue('flat', 'onedark')}&no-frame=true&column=4&margin-w=15&margin-h=15`}
+                src={`https://github-profile-trophy.vercel.app/?username=${username}&theme=${trophyTheme}&no-frame=true&column=4&margin-w=15&margin-h=15`}
                 alt="GitHub Trophies"
                 mx="auto"
                 maxW="100%"

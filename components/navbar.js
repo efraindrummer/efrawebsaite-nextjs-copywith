@@ -17,11 +17,13 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from "./theme-toggle-button"
-import { motion } from 'framer-motion'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
     const active = path === href
     const inactiveColor = useColorModeValue('gray.700', 'gray.300')
+    const activeBg = useColorModeValue('blue.600', 'blue.500')
+    const hoverActiveBg = useColorModeValue('blue.700', 'blue.600')
+    const hoverInactiveBg = useColorModeValue('gray.100', 'gray.700')
 
     return (
         <Link
@@ -31,15 +33,13 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
             p={2}
             px={4}
             borderRadius="md"
-            bg={active ? useColorModeValue('blue.600', 'blue.500') : undefined}
+            bg={active ? activeBg : undefined}
             color={active ? 'white' : inactiveColor}
             fontWeight={active ? '600' : '500'}
             target={target}
             transition="all 0.2s"
             _hover={{
-                bg: active 
-                    ? useColorModeValue('blue.700', 'blue.600') 
-                    : useColorModeValue('gray.100', 'gray.700'),
+                bg: active ? hoverActiveBg : hoverInactiveBg,
                 textDecoration: 'none'
             }}
             {...props}

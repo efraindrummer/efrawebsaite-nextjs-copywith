@@ -17,6 +17,7 @@ import {
     VStack,
     HStack,
 } from '@chakra-ui/react'
+import { GridItem } from '../components/grid-item'
 //components
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
@@ -24,7 +25,6 @@ import { BioSection, BioYear } from '../components/bio'
 import { Timeline } from '../components/timeline';
 import Image from "next/image"
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { motion } from 'framer-motion'
 import {
     IoLogoTwitter,
     IoLogoInstagram,
