@@ -19,8 +19,6 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from "./theme-toggle-button"
 import { motion } from 'framer-motion'
 
-const MotionBox = motion(Box)
-
 const LinkItem = ({ href, path, target, children, ...props }) => {
     const active = path === href
     const inactiveColor = useColorModeValue('gray.700', 'gray.300')

@@ -39,8 +39,6 @@ const ProfileImage = chakra(Image, {
     shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 })
 
-const MotionBox = motion(Box)
-const MotionFlex = motion(Flex)
 
 const Home = () => {
     return (
