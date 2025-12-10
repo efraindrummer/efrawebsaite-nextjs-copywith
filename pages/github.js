@@ -53,6 +53,8 @@ const Github = () => {
   const years = Array.from({ length: 6 }, (_, i) => new Date().getFullYear() - i);
 
   useEffect(() => {
+
+    
     fetch(`https://api.github.com/users/${username}`)
       .then(res => res.json())
       .then(data => setProfile(data))
