@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Flex, Text, VStack, Image, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaCircle } from "react-icons/fa";

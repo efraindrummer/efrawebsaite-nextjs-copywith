@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Text, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
@@ -23,7 +25,7 @@ const Logo = () => {
             <LogoBox>
                 <Text
                     color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-                    fontFamily='M PLUS Rounded 1c", sans-serif'
+                    fontFamily="var(--font-inter), sans-serif"
                     fontWeight="bold"
                     ml={3}
                 >
