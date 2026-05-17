@@ -4,6 +4,7 @@ import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import theme from '../lib/theme'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import ContactBot from '../components/contact-bot'
 import { Box, Container } from '@chakra-ui/react'
 import Image from 'next/image'
 
@@ -29,6 +30,7 @@ export function Providers({ children }) {
             <Footer />
           </Container>
         </Box>
+        <ContactBot />
       </ChakraProvider>
     </>
   )
