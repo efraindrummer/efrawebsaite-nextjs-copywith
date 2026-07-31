@@ -1,6 +1,6 @@
 import { worksData } from '../lib/works-data'
 
-const SITE_URL = 'https://efrainmay.dev'
+const SITE_URL = 'https://efradeveloper.lat/'
 
 export default function sitemap() {
   const staticRoutes = [

@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import { Providers } from './providers'
 
-const SITE_URL = 'https://efrainmay.dev'
+const SITE_URL = 'https://efradeveloper.lat/'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 const OG_DESCRIPTION =
-  'Portafolio de Efrain May, Ingeniero en Computación con +4 años de experiencia en desarrollo Full Stack, Mobile (Flutter), Cloud Computing y DevOps.'
+  'Portafolio de Efrain May, Ingeniero en Computación con +6 años de experiencia en desarrollo Full Stack, Mobile (Flutter), Cloud Computing y DevOps.'
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
