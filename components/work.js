@@ -1,8 +1,7 @@
 'use client'
 
 import NextLink from 'next/link'
-import { useState } from 'react'
-import { Heading, Box, Image, Link, Badge, Button, VStack } from '@chakra-ui/react'
+import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
 export const Title = ({ children }) => {
