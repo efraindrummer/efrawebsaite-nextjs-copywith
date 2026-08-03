@@ -22,7 +22,7 @@ import thumbChatIA from '../../public/images/links/chatbot_ia.jpg'
 import thumbDragadosOffshore from '../../public/images/links/dragados_offshorelogo.jpg'
 import thumbMardeAmor from '../../public/images/works/mardeamor.png'
 import thumbCCONSULTORES from '../../public/images/works/cconsultores.png'
-import thumbEmpowermentDelCarmen from '../../public/images/works/cconsultores.png'
+import thumbEmpowermentDelCarmen from '../../public/images/works/empowermentcme.png'
 
 const projects = [
   {
