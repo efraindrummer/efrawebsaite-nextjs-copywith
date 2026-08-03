@@ -1,6 +1,7 @@
 'use client'
 
 import NextLink from 'next/link'
+import { useState } from 'react'
 import {
   Container,
   Badge,
@@ -11,6 +12,7 @@ import {
   Text,
   SimpleGrid,
   VStack,
+  Button,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -19,6 +21,7 @@ import Section from '../../../components/section'
 import { GlassCard } from '../../../components/glass-card'
 
 export default function WorkDetailClient({ work }) {
+  const [showAllImages, setShowAllImages] = useState(false)
   const descColor = useColorModeValue('gray.700', 'gray.300')
 
   if (!work) {
@@ -71,10 +74,23 @@ export default function WorkDetailClient({ work }) {
 
       <Section delay={0.4}>
         <SimpleGrid columns={[1, 1, 2]} gap={4}>
-          {work.images.map((img, i) => (
-            <WorkImage key={i} src={img} alt={`${work.title} screenshot ${i + 1}`} />
+          {work.images.slice(0, 1).map((img, i) => (
+            <WorkImage key={i} src={img} alt={`${work.title} screenshot ${i + 1}`} priority />
+          ))}
+          {showAllImages && work.images.slice(1).map((img, i) => (
+            <WorkImage
+              key={i + 1}
+              src={img}
+              alt={`${work.title} screenshot ${i + 2}`}
+            />
           ))}
         </SimpleGrid>
+
+        {work.images.length > 1 && !showAllImages && (
+          <Button mt={4} variant="outline" onClick={() => setShowAllImages(true)}>
+            Ver más capturas
+          </Button>
+        )}
       </Section>
     </Container>
   )

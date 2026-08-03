@@ -22,6 +22,7 @@ import thumbChatIA from '../../public/images/links/chatbot_ia.jpg'
 import thumbDragadosOffshore from '../../public/images/links/dragados_offshorelogo.jpg'
 import thumbMardeAmor from '../../public/images/works/mardeamor.png'
 import thumbCCONSULTORES from '../../public/images/works/cconsultores.png'
+import thumbEmpowermentDelCarmen from '../../public/images/works/cconsultores.png'
 
 const projects = [
   {
@@ -159,6 +160,14 @@ const projects = [
     description: 'SPA institucional para despacho contable con formulario de contacto.',
     category: 'Web',
     techs: ['React', 'TypeScript'],
+  },
+  {
+    id: 'empowerment_del_carmen',
+    title: 'Empowerment del Carmen',
+    thumbnail: thumbEmpowermentDelCarmen,
+    description: 'Desarrollo web y consultoría TI para un proyecto enfocado en capacitación.',
+    category: 'Web',
+    techs: ['Next.js', 'React', 'TypeScript'],
   },
 ]
 

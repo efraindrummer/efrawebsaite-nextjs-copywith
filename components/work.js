@@ -1,7 +1,8 @@
 'use client'
 
 import NextLink from 'next/link'
-import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Heading, Box, Image, Link, Badge, Button, VStack } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 
 export const Title = ({ children }) => {
@@ -27,13 +28,15 @@ export const Title = ({ children }) => {
     )
 }
 
-export const WorkImage = ({ src, alt }) => (
+export const WorkImage = ({ src, alt, priority = false }) => (
     <Image 
         borderRadius="lg"
         w="full"
         src={src}
         alt={alt}
         mb={4}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
     />
 )
 
