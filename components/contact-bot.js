@@ -17,112 +17,135 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../lib/language-context'
 
 const MotionBox = motion(Box)
 
-// ── Knowledge base ──────────────────────────────────────────────
-const KB = {
-  sobre: `Soy **Efrain May**, tengo 27 años y soy Ingeniero en Computación por la Universidad Autónoma del Carmen (2022). Trabajo en el mundo del desarrollo de software desde 2021. Actualmente soy Desarrollador de Software en **Dragados Offshore México**.`,
+const KB_ES = {
+  sobre: `Soy **Efraín May**, Ingeniero en Computación (UNACAR, 2022) y actualmente curso la **Maestría en Tecnologías de la Información Emergentes**, enfocándome en la integración y desarrollo de **Inteligencia Artificial** para automatizar procesos. Soy Ingeniero de Software en **Dragados Offshore México**, Project Manager Certificado, Conferencista y Consultor TI Freelance.`,
+
+  conferencias: `Mis conferencias y congresos destacados en **2026**:
+• **Google Developer Groups (GDG DevFest 2026)** → Conferencia: *"Trayecto IA, conectando MCP con datos y optimizando procesos mediante Agentic Patterns"*.
+• **4° Seminario Permanente CREN / Estancia UQROO (19-23 oct 2026)** → Taller *"IA en el aula: herramientas prácticas para la docencia"* y Ponencia *"IA para aprender, enseñar y crear: experiencias desde las tecnologías emergentes"* (Constancias expedidas el 30 de oct 2026).
+• **Congreso Internacional UNACH (CIU 2026)** → Presentación de tesis: *"Trayecto IA: Plataforma Web con Inteligencia Artificial para la Gestión Académica Universitaria"*.`,
+
+  freelance: `Como **Freelancer y Consultor TI**, ofrezco soluciones especializadas en:
+• **Software ERP a medida** y modernización de sistemas empresariales
+• **Integraciones en Sistemas de Facturación** electrónica y pasarelas de pago
+• **Análisis de Datos e Inteligencia Artificial** (Agentes IA, MCP, automatización de reportes)
+• **Consultoría TI y Gestión de Proyectos** (Web, Mobile, Cloud & Linux)`,
 
   experiencia: `Mi trayectoria laboral:
-• **Nov 2024 – Actual** → Dragados Offshore México (VB6, .NET, SQL Server)
-• **Nov 2023 – Nov 2024** → 42A Corporativo — Desarrollador Web (Node.js, MySQL, Docker)
-• **Feb 2023 – Ago 2023** → Delmer — Líder de Desarrollo (Kotlin, Flutter, Firebase)
-• **Mar 2022 – Mar 2023** → SUD Solutions — Software Developer (Node.js, Flutter, TypeScript)
-• **Jun 2021 – Sep 2023** → Irium — Ingeniero de Soporte TI (Linux)
-• **Oct 2020 – Dic 2020** → Tuprop — Software Developer (ReactJS)`,
+• **Nov 2024 – Actual** → Dragados Offshore México (VB6, .NET, SQL Server, ERP)
+• **2021 – Actual** → Consultor TI, Desarrollador ERP, Facturación e IA (Freelance)
+• **Nov 2023 – Nov 2024** → 42A Corporativo — Desarrollador Web ERP NUUP (Node.js, MySQL, Docker)
+• **Feb 2023 – Ago 2023** → Delmer — Líder de Desarrollo & Project Manager (Kotlin, Flutter, Firebase)
+• **Mar 2022 – Mar 2023** → SUD Solutions — Software Developer (Node.js, Flutter, TypeScript, PostgreSQL)
+• **Jun 2021 – Sep 2023** → Irium — Ingeniero de Soporte TI (Linux)`,
 
-  skills: `Mis habilidades técnicas:
-• **Flutter** 90% | **Node.js** 85% | **Visual Basic** 100%
-• **MySQL** 80% | **Ubuntu/Linux** 80% | **Kali Linux** 80%
-• **SQL Server** 75% | **JavaScript** 60% | **Firebase** 60%
-• **Android (Kotlin)** 60% | **Angular** 50% | **Next.js** 50%`,
+  certificaciones: `Formación y certificaciones destacadas:
+• **2025-2026** → Maestría en Tecnologías de la Información Emergentes
+• **2026** → Constancias oficiales como Ponente y Tallerista en 4° Seminario Permanente CREN, CIU 2026 UNACH y GDG DevFest 2026
+• **2025** → Desarrollo Web con IA (OpenAI, DeepSeek, JS, Node.js)
+• **2025** → Android Enterprise Certified Professional & Associate
+• **2024** → Kubernetes & Docker en AWS | ABAP para funcionales
+• **2021** → Google Cloud Computing & Mobile App Development Certified
+• **2020** → Scrum Master Certificado (Gestión de Proyectos) & Big Data`,
 
-  proyectos: `Algunos proyectos destacados:
-• **Lidos Pizza** (2023) — App delivery completa con Vue, Flutter, Firebase, Mercado Pago
-• **MI TAXI** (2023) — App de taxis con Kotlin y Google Maps
-• **Nuup ERP** (2024) — Sistema ERP interno con Node.js, Docker, MySQL
-• **Mar de Amor** (2025) — Web para charcutería premium con Vue.js y Docker
-• **Carretino Consultores** (2025) — SPA contable con Next.js 15 y TypeScript
-• **ERP Dragados Offshore** (2025) — Migración VB6 → .NET
-• **Seguridad360** (2022) — App mobile de monitoreo GPS en Flutter
-• **Snapp** (2020) — App estilo Uber, Líder Técnico del proyecto
-
-Puedes ver todos en la sección *Works*.`,
-
-  certificaciones: `Mis certificaciones y formación:
-• 2025 → Desarrollo Web con IA (OpenAI, DeepSeek, JS, Node.js)
-• 2025 → Android Enterprise Certified Professional
-• 2025 → Android Enterprise Certified Associate
-• 2024 → Kubernetes & Docker en AWS
-• 2024 → ABAP Para funcionales
-• 2022 → Ingeniero en Computación — UNACAR
-• 2021 → Cloud Computing — Google
-• 2021 → Desarrollo de Apps Móviles — Google
-• 2021 → Flutter Avanzado — Udemy
-• 2020 → Scrum Master — Udemy
-• 2020 → Big Data — Fundación Carlos Slim`,
-
-  contacto: `Puedes contactarme por:
+  contacto: `Conecta conmigo en mis redes oficiales:
+• **LinkedIn:** [in/efraindev](https://www.linkedin.com/in/efraindev/)
+• **YouTube:** [@EfraínMay](https://www.youtube.com/@Efra%C3%ADnMay/videos)
+• **Instagram:** [@efraincode](https://www.instagram.com/efraincode/)
+• **Facebook:** [Efrain.May](https://www.facebook.com/Efrain.May/)
 • **WhatsApp:** [+52 938 116 9411](https://wa.me/529381169411)
-• **Email:** [efrain_may_75@hotmail.com](mailto:efrain_may_75@hotmail.com)
-• **GitHub:** [@efraindrummer](https://github.com/efraindrummer)
-• **Instagram:** [@efracode](https://www.instagram.com/efraincode/)
-• **Twitter:** [@efraindrummer7](https://twitter.com/efraindrummer7)`,
+• **Email:** [efrain_may_75@hotmail.com](mailto:efrain_may_75@hotmail.com)`,
 
-  intereses: `Fuera del código me apasionan el **Arte**, la **Música** y tocar la **Batería** 🥁. También comparto contenido en YouTube sobre programación.`,
-
-  flutter: `Flutter es mi stack principal (90%). He desarrollado varias apps publicadas en Google Play como Seguridad360, Sud Monitoreo y Control, y MI TAXI. También soy Líder Técnico del proyecto Snapp (app tipo Uber para LATAM).`,
-
-  node: `Node.js es mi backend preferido (85%). Lo he usado con Express, Sequelize, TypeORM, MySQL y PostgreSQL en proyectos como el ERP Nuup, Lidos Pizza y SUD Solutions.`,
-
-  web: `En web trabajo con **React, Next.js, Vue.js, Angular y TypeScript**. Algunos proyectos: Carretino Consultores (Next.js 15), Mar de Amor (Vue.js), Tuprop (ReactJS) y esta misma web personal.`,
-
-  mobile: `He desarrollado apps móviles con Flutter (iOS/Android) y Kotlin. Tengo apps en Google Play: Seguridad360, Sud Monitoreo y Control, MI TAXI (pasajero y conductor).`,
-
-  cv: `Puedes descargar mi CV completo desde el botón en la sección principal de la página, o pedirme el link directamente por WhatsApp o email.`,
-
-  empresa: `Actualmente trabajo en **Dragados Offshore México** como Desarrollador de Software, migrando código heredado de VB6 a .NET Framework y optimizando sistemas ERP del sector offshore/petrolero.`,
-
-  default: `No estoy seguro de entender tu pregunta 😅. Puedes preguntarme sobre mi **experiencia**, **proyectos**, **skills**, **certificaciones** o **contacto**. ¡Intenta con una de las sugerencias de abajo!`,
+  default: `¡Hola! Puedo contarte sobre mis **conferencias 2026 (GDG, CIU UNACH, CREN/UQROO)**, mi **Maestría en TI Emergentes e IA**, mis **servicios freelance (ERP, Facturación, IA, Consultoría TI)**, mi **experiencia** o mis **redes sociales**. ¡Elige una opción abajo!`,
 }
 
-const SUGGESTIONS = [
-  { label: '👤 Sobre mí', key: 'sobre' },
-  { label: '💼 Experiencia', key: 'experiencia' },
-  { label: '🛠 Skills', key: 'skills' },
-  { label: '🚀 Proyectos', key: 'proyectos' },
-  { label: '🎓 Certificaciones', key: 'certificaciones' },
-  { label: '📬 Contacto', key: 'contacto' },
-]
+const KB_EN = {
+  sobre: `I'm **Efraín May**, Computer Engineer (UNACAR, 2022) currently pursuing a **Master's Degree in Emerging Information Technologies**, focusing on **Artificial Intelligence** integration and business process automation. I work as a Software Engineer at **Dragados Offshore Mexico**, Certified Project Manager, Tech Speaker, and Senior Freelance IT Consultant.`,
 
-// ── Simple intent resolver ───────────────────────────────────────
-function resolve(input) {
+  conferencias: `My featured **2026 conferences & academic research**:
+• **Google Developer Groups (GDG DevFest 2026)** → Keynote: *"Trayecto IA: Connecting MCP with Data and Optimizing Processes through Agentic Patterns"*.
+• **4th Permanent Research Seminar CREN / UQROO (Oct 19-23, 2026)** → Workshop *"AI in the Classroom: Practical Tools for Teaching"* & Paper *"AI for Learning, Teaching, and Creating: Experiences from Emerging Technologies"* (Certified Oct 30, 2026).
+• **UNACH International Congress (CIU 2026)** → Master's Thesis Presentation: *"Trayecto IA: AI-Powered Web Platform for University Academic Management"*.`,
+
+  freelance: `As a **Freelancer & IT Consultant**, I specialize in:
+• **Custom ERP Software** & legacy system modernization
+• **Electronic Billing & Invoicing Integrations** and payment gateways
+• **Data Analytics & Artificial Intelligence** (AI Agents, MCP, workflow automation)
+• **IT Consulting & Certified Project Management** (Web, Mobile, Cloud & Linux)`,
+
+  experiencia: `My professional career:
+• **Nov 2024 – Present** → Dragados Offshore Mexico (VB6, .NET, SQL Server, ERP)
+• **2021 – Present** → Freelance IT Consultant, ERP, Billing & AI Developer
+• **Nov 2023 – Nov 2024** → 42A Corporativo — Full Stack Developer NUUP ERP (Node.js, MySQL, Docker)
+• **Feb 2023 – Aug 2023** → Delmer — Development Lead & Project Manager (Kotlin, Flutter, Firebase)
+• **Mar 2022 – Mar 2023** → SUD Solutions — Software Developer (Node.js, Flutter, TypeScript, PostgreSQL)
+• **Jun 2021 – Sep 2023** → Irium — IT Support & Linux Engineer`,
+
+  certificaciones: `Education & Certifications:
+• **2025-2026** → M.Sc. in Emerging Information Technologies
+• **2026** → Official Speaker & Workshop Instructor Certificates at CREN 57th Anniversary, CIU 2026 UNACH & GDG DevFest 2026
+• **2025** → Web Development with AI (OpenAI, DeepSeek, JS, Node.js)
+• **2025** → Android Enterprise Certified Professional & Associate
+• **2024** → Kubernetes & Docker on AWS | SAP ABAP Reporting
+• **2021** → Google Cloud Computing & Mobile Development Certified
+• **2020** → Certified Scrum Master (Project Management) & Big Data`,
+
+  contacto: `Connect with me on my official channels:
+• **LinkedIn:** [in/efraindev](https://www.linkedin.com/in/efraindev/)
+• **YouTube:** [@EfraínMay](https://www.youtube.com/@Efra%C3%ADnMay/videos)
+• **Instagram:** [@efraincode](https://www.instagram.com/efraincode/)
+• **Facebook:** [Efrain.May](https://www.facebook.com/Efrain.May/)
+• **WhatsApp:** [+52 938 116 9411](https://wa.me/529381169411)
+• **Email:** [efrain_may_75@hotmail.com](mailto:efrain_may_75@hotmail.com)`,
+
+  default: `Hi! I can tell you about my **2026 Conferences (GDG, CIU UNACH, CREN/UQROO)**, my **Master's in Emerging IT & AI**, **Freelance Services (ERP, Billing, AI, IT Consulting)**, **Work Experience**, or **Social Links**. Pick a suggestion below!`,
+}
+
+const SUGGESTIONS = {
+  es: [
+    { label: '👤 Sobre mí & Maestría', key: 'sobre' },
+    { label: '🎤 Conferencias 2026', key: 'conferencias' },
+    { label: '🚀 Freelance & ERP/IA', key: 'freelance' },
+    { label: '💼 Experiencia', key: 'experiencia' },
+    { label: '🎓 Certificaciones & PM', key: 'certificaciones' },
+    { label: '📬 Redes & Contacto', key: 'contacto' },
+  ],
+  en: [
+    { label: "👤 About & Master's", key: 'sobre' },
+    { label: '🎤 2026 Conferences', key: 'conferencias' },
+    { label: '🚀 Freelance & ERP/AI', key: 'freelance' },
+    { label: '💼 Experience', key: 'experiencia' },
+    { label: '🎓 Certifications & PM', key: 'certificaciones' },
+    { label: '📬 Socials & Contact', key: 'contacto' },
+  ],
+}
+
+function resolve(input, lang) {
   const q = input.toLowerCase()
+  const kb = lang === 'en' ? KB_EN : KB_ES
 
-  if (/flutter|dart|mobile|movil|móvil|app/.test(q)) return KB.flutter
-  if (/node|backend|express|sequelize/.test(q)) return KB.node
-  if (/web|react|next|vue|angular|typescript|frontend/.test(q)) return KB.web
-  if (/android|kotlin|google play/.test(q)) return KB.mobile
-  if (/empresa|trabaj|actual|offshore|dragados/.test(q)) return KB.empresa
-  if (/cv|curriculum|descargar/.test(q)) return KB.cv
-  if (/contacto|email|whatsapp|correo|gmail|hotmail|teléfono|telefono/.test(q)) return KB.contacto
-  if (/proyect|work|portafolio|portfolio|lidos|taxi|nuup|snapp|seguridad/.test(q)) return KB.proyectos
-  if (/skill|tecnolog|conocimiento|sabe|domina/.test(q)) return KB.skills
-  if (/certific|diploma|estudios|universidad|unacar|académic|formación/.test(q)) return KB.certificaciones
-  if (/experiencia|trabajo|empresa|historial|trayector/.test(q)) return KB.experiencia
-  if (/interés|interes|hobby|música|batería|arte|personal/.test(q)) return KB.intereses
-  if (/quién|quien|sobre|acerca|presentat|eres|name|nombre/.test(q)) return KB.sobre
-  if (/hola|buenos|buenas|hey|hi|hello/.test(q)) return `¡Hola! 👋 Soy el asistente de **Efrain May**. Puedo contarte sobre su experiencia, proyectos, skills o cómo contactarlo. ¿Qué te gustaría saber?`
+  if (q === 'sobre' || /quién|quien|sobre|acerca|maestr|master|ia|ai/.test(q)) return kb.sobre
+  if (q === 'conferencias' || /conferenc|gdg|google|ciu|unach|cren|uqroo|seminario|tesis|trayecto/.test(q))
+    return kb.conferencias
+  if (q === 'freelance' || /freelanc|erp|facturac|billing|consultor|servicio|datos|data/.test(q))
+    return kb.freelance
+  if (q === 'experiencia' || /experiencia|trabajo|empresa|dragados|delmer|sud/.test(q))
+    return kb.experiencia
+  if (q === 'certificaciones' || /certific|scrum|project|gestion|gestión|aws|android/.test(q))
+    return kb.certificaciones
+  if (q === 'contacto' || /contacto|linkedin|youtube|instagram|facebook|whatsapp|email/.test(q))
+    return kb.contacto
 
-  return KB.default
+  return kb.default
 }
 
-// ── Markdown-lite renderer ───────────────────────────────────────
 function renderText(text, linkColor) {
   const lines = text.split('\n')
   return lines.map((line, i) => {
-    // Parse bold + links inline
     const parts = []
     let remaining = line
     let key = 0
@@ -163,7 +186,6 @@ function renderText(text, linkColor) {
   })
 }
 
-// ── Icons ────────────────────────────────────────────────────────
 const SendIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
@@ -182,7 +204,6 @@ const CloseIcon = () => (
   </svg>
 )
 
-// ── Message bubble ───────────────────────────────────────────────
 function Bubble({ msg, linkColor }) {
   const botBg = useColorModeValue('gray.100', 'whiteAlpha.100')
   const userBg = 'brand.500'
@@ -209,11 +230,17 @@ function Bubble({ msg, linkColor }) {
   )
 }
 
-// ── Main component ───────────────────────────────────────────────
 export default function ContactBot() {
+  const { lang } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { from: 'bot', text: '¡Hola! 👋 Soy el asistente de **Efrain May**. Pregúntame cualquier cosa sobre su experiencia, proyectos, skills o cómo contactarlo.' },
+    {
+      from: 'bot',
+      text:
+        lang === 'en'
+          ? "Hi! 👋 I'm **Efraín May's** AI assistant. Ask me about his 2026 conferences (GDG, CIU UNACH, CREN), Master's in AI, ERP & billing services, or contact info."
+          : '¡Hola! 👋 Soy el asistente de **Efraín May**. Pregúntame sobre sus conferencias 2026 (GDG, CIU UNACH, CREN), Maestría en IA, servicios ERP/Facturación o redes sociales.',
+    },
   ])
   const [input, setInput] = useState('')
   const [typing, setTyping] = useState(false)
@@ -234,21 +261,23 @@ export default function ContactBot() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, typing])
 
-  function send(text) {
+  function send(text, displayLabel) {
     const trimmed = text.trim()
     if (!trimmed) return
     setInput('')
-    setMessages(prev => [...prev, { from: 'user', text: trimmed }])
+    setMessages(prev => [...prev, { from: 'user', text: displayLabel || trimmed }])
     setTyping(true)
     setTimeout(() => {
       setTyping(false)
-      setMessages(prev => [...prev, { from: 'bot', text: resolve(trimmed) }])
-    }, 700)
+      setMessages(prev => [...prev, { from: 'bot', text: resolve(trimmed, lang) }])
+    }, 500)
   }
 
   function handleKey(e) {
     if (e.key === 'Enter') send(input)
   }
+
+  const currentSuggestions = SUGGESTIONS[lang] || SUGGESTIONS.es
 
   return (
     <Box
@@ -266,7 +295,7 @@ export default function ContactBot() {
             exit={{ opacity: 0, y: 24, scale: 0.93 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
             mb={4}
-            w={{ base: '320px', sm: '360px' }}
+            w={{ base: '320px', sm: '370px' }}
             bg={cardBg}
             borderRadius="2xl"
             border="1px solid"
@@ -275,18 +304,22 @@ export default function ContactBot() {
             overflow="hidden"
             display="flex"
             flexDirection="column"
-            h="480px"
+            h="490px"
           >
             {/* Header */}
-            <Box bgGradient="linear(135deg, brand.700, brand.400)" px={4} py={3} flexShrink={0}>
+            <Box bgGradient="linear(135deg, brand.700, purple.500)" px={4} py={3} flexShrink={0}>
               <HStack justify="space-between">
                 <HStack spacing={3}>
-                  <Avatar size="sm" name="Efrain May" bg="whiteAlpha.300" color="white" fontWeight="bold" />
+                  <Avatar size="sm" name="Efraín May" bg="whiteAlpha.300" color="white" fontWeight="bold" />
                   <VStack align="start" spacing={0}>
-                    <Text fontWeight="700" color="white" fontSize="sm">Efrain May</Text>
+                    <Text fontWeight="700" color="white" fontSize="sm">
+                      Efraín May
+                    </Text>
                     <HStack spacing={1}>
                       <Box w={1.5} h={1.5} bg="green.300" borderRadius="full" />
-                      <Text fontSize="10px" color="whiteAlpha.800">Asistente virtual</Text>
+                      <Text fontSize="10px" color="whiteAlpha.800">
+                        {lang === 'en' ? 'Virtual Assistant' : 'Asistente Virtual'}
+                      </Text>
                     </HStack>
                   </VStack>
                 </HStack>
@@ -309,7 +342,13 @@ export default function ContactBot() {
               spacing={3}
               p={4}
               align="stretch"
-              css={{ '&::-webkit-scrollbar': { width: '4px' }, '&::-webkit-scrollbar-thumb': { background: 'rgba(128,128,128,0.3)', borderRadius: '4px' } }}
+              css={{
+                '&::-webkit-scrollbar': { width: '4px' },
+                '&::-webkit-scrollbar-thumb': {
+                  background: 'rgba(128,128,128,0.3)',
+                  borderRadius: '4px',
+                },
+              }}
             >
               {messages.map((msg, i) => (
                 <Bubble key={i} msg={msg} linkColor={linkColor} />
@@ -341,7 +380,7 @@ export default function ContactBot() {
             {/* Suggestions */}
             <Box px={3} pb={2} flexShrink={0}>
               <Wrap spacing={1}>
-                {SUGGESTIONS.map(s => (
+                {currentSuggestions.map(s => (
                   <WrapItem key={s.key}>
                     <Button
                       size="xs"
@@ -351,7 +390,7 @@ export default function ContactBot() {
                       fontWeight="500"
                       borderRadius="full"
                       _hover={{ bg: suggHover, borderColor: 'brand.400' }}
-                      onClick={() => send(s.key)}
+                      onClick={() => send(s.key, s.label)}
                     >
                       {s.label}
                     </Button>
@@ -372,7 +411,7 @@ export default function ContactBot() {
               >
                 <Input
                   variant="unstyled"
-                  placeholder="Escribe tu pregunta..."
+                  placeholder={lang === 'en' ? 'Ask a question...' : 'Escribe tu pregunta...'}
                   fontSize="sm"
                   value={input}
                   onChange={e => setInput(e.target.value)}
